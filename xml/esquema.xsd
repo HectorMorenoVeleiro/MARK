@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <!-- declaracion de elemento raiz llamado en este caso COLECCION-->
+    <xs:element name="COLECCION">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="CD" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- declaracion de elemento CD-->
+    <xs:element name="CD">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="TITLE"/>
+                <xs:element ref="ARTIST"/>
+                <xs:element ref="COUNTRY"/>
+                <xs:element ref="COMPANY"/>
+                <xs:element ref="PRICE"/>
+                <xs:element ref="YEAR"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--declaracion de elementos finales-->
+    <xs:element name="TITLE" type="xs:string"/>
+    <xs:element name="ARTIST" type="xs:string"/>
+    <xs:element name="COUNTRY" type="xs:string"/> <!-- pais como enum -->
+    <xs:element name="COMPANY" type="xs:string"/> <!-- otro enum-->
+    <xs:element name="PRICE" type="xs:decimal"/>
+    <xs:element name="YEAR" type="xs:integer"/>
+</xs:schema>
