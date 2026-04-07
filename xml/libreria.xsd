@@ -30,6 +30,7 @@
         </xs:complexType>
     </xs:element>
 
+    <!-- declaracion de elemento libreria con mas elementos-->
     <xs:element name="libreria">
         <xs:complexType>
             <xs:sequence>
