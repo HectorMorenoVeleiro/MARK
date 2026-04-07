@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libreria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="libreria.xsd">
+    <libro>
+        <titulo>El Señor de los Anillos</titulo>
+        <autor>J.R.R. Tolkien</autor>
+        <anio>1954</anio>
+        <genero>Fantasía</genero>
+    </libro>
+    <libro>
+        <titulo>Dune</titulo>
+        <autor>Frank Herbert</autor>
+        <anio>1965</anio>
+        <genero>Ciencia Ficción</genero>
+    </libro>
+    <libro>
+        <titulo>Los Pilares de la Tierra</titulo>
+        <autor>Ken Follett</autor>
+        <anio>1989</anio>
+        <genero>Novela Histórica</genero>
+    </libro>
+    <libro>
+        <titulo>Drácula</titulo>
+        <autor>Bram Stoker</autor>
+        <anio>1897</anio>
+        <genero>Terror</genero>
+    </libro>
+    <libro>
+        <titulo>Cien años de soledad</titulo>
+        <autor>Gabriel García Márquez</autor>
+        <anio>1967</anio>
+        <genero>Realismo Mágico</genero>
+    </libro>
+    <libro>
+        <titulo>1984</titulo>
+        <autor>George Orwell</autor>
+        <anio>1949</anio>
+        <genero>Distopía</genero>
+    </libro>
+    <libro>
+        <titulo>Harry Potter y la Piedra Filosofal</titulo>
+        <autor>J.K. Rowling</autor>
+        <anio>1997</anio>
+        <genero>Fantasía</genero>
+    </libro>
+    <libro>
+        <titulo>Fundación</titulo>
+        <autor>Isaac Asimov</autor>
+        <anio>1951</anio>
+        <genero>Ciencia Ficción</genero>
+    </libro>
+    <libro>
+        <titulo>El nombre de la rosa</titulo>
+        <autor>Umberto Eco</autor>
+        <anio>1980</anio>
+        <genero>Novela Histórica</genero>
+    </libro>
+    <libro>
+        <titulo>It</titulo>
+        <autor>Stephen King</autor>
+        <anio>1986</anio>
+        <genero>Terror</genero>
+    </libro>
+    <libro>
+        <titulo>Pedro Páramo</titulo>
+        <autor>Juan Rulfo</autor>
+        <anio>1955</anio>
+        <genero>Realismo Mágico</genero>
+    </libro>
+    <libro>
+        <titulo>Un mundo feliz</titulo>
+        <autor>Aldous Huxley</autor>
+        <anio>1932</anio>
+        <genero>Distopía</genero>
+    </libro>
+    <libro>
+        <titulo>Crónicas Marcianas</titulo>
+        <autor>Ray Bradbury</autor>
+        <anio>1950</anio>
+        <genero>Ciencia Ficción</genero>
+    </libro>
+    <libro>
+        <titulo>El resplandor</titulo>
+        <autor>Stephen King</autor>
+        <anio>1977</anio>
+        <genero>Terror</genero>
+    </libro>
+</libreria>
