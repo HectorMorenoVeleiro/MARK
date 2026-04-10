@@ -3,8 +3,15 @@
 
     <!-- declaracion de elementos finales -->
     <xs:element name="nombre" type="xs:string" />
-    <xs:element name="edad" type="xs:integer" />
     <xs:element name="carrera" type="xs:string" />
+    <xs:element name="edad">
+        <xs:simpleType>
+            <xs:restriction base="xs:integer">
+                <xs:minInclusive value="18" />
+                <xs:maxInclusive value="50" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
 
     <!-- declaracion del elemento raiz -->
     <xs:element name="estudiante">

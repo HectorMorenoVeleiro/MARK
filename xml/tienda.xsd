@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- declaracion de elementos finales -->
+    <xs:element name="nombre" type="xs:string" />
+    <xs:element name="precio" type="xs:string" />
+    <xs:element name="cantidad" type="xs:string" />
+
+    <!-- declaracion del elemento raiz -->
+    <xs:element name="producto">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre" />
+                <xs:element ref="precio" />
+                <xs:element ref="cantidad" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- declaracion del elemento tienda con mas elementos -->
+    <xs:element name="tienda">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="producto" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
