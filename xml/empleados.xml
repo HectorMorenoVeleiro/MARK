@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EMPLEADOS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:noNamespaceSchemaLocation="empleados.xsd">
+    xsi:noNamespaceSchemaLocation="empleados.xsd">
     <EMPLEADO>
         <NOMBRE>Ana</NOMBRE>
         <APELLIDO>García</APELLIDO>

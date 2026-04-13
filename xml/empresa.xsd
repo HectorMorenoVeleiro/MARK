@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- declaracion de elementos finales -->
+    <xs:element name="nombre">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="apellido">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="fechaNacimiento" type="xs:date"></xs:element>
+    <xs:element name="salario">
+        <xs:simpleType>
+            <xs:restriction base="xs:decimal">
+                <xs:fractionDigits value="2" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="activo" type="xs:boolean"></xs:element>
+    <xs:element name="horaEntrada" type="xs:time"></xs:element>
+
+    <!-- declaracion del elemento raiz -->
+    <xs:element name="empleado">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre" />
+                <xs:element ref="apellido" />
+                <xs:element ref="fechaNacimiento" />
+                <xs:element ref="salario" />
+                <xs:element ref="activo" />
+                <xs:element ref="horaEntrada" />
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:integer" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- declaracion del elemento empresa con mas elementos-->
+    <xs:element name="empresa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="empleado" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute name="nombreEmpresa" type="xs:string" />
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
