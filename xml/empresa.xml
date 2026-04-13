@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <empresa nombreEmpresa="TechCorp" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="empresa.xsd">
-    <empleado id="1">
+    <empleado id="_1">
         <nombre>John</nombre>
         <apellido>Doe</apellido>
         <fechaNacimiento>1990-05-15</fechaNacimiento>
@@ -10,7 +10,7 @@
         <horaEntrada>09:00:00</horaEntrada>
     </empleado>
 
-    <empleado id="2">
+    <empleado id="_2">
         <nombre>Jane</nombre>
         <apellido>Smith</apellido>
         <fechaNacimiento>1985-08-20</fechaNacimiento>
@@ -19,35 +19,35 @@
         <horaEntrada>08:30:00</horaEntrada>
     </empleado>
 
-    <empleado id="3">
+    <empleado id="_3">
         <nombre>Carlos</nombre>
-        <apellido>García</apellido>
+        <apellido>GarcIa</apellido>
         <fechaNacimiento>1985-05-12</fechaNacimiento>
         <salario>25000.50</salario>
         <activo>true</activo>
         <horaEntrada>08:00:00</horaEntrada>
     </empleado>
 
-    <empleado id="4">
+    <empleado id="_4">
         <nombre>Elena</nombre>
-        <apellido>Martín</apellido>
+        <apellido>Martin</apellido>
         <fechaNacimiento>1990-03-22</fechaNacimiento>
         <salario>32000.00</salario>
         <activo>true</activo>
         <horaEntrada>09:00:00</horaEntrada>
     </empleado>
 
-    <empleado id="5">
+    <empleado id="_5">
         <nombre>Jorge</nombre>
-        <apellido>López</apellido>
+        <apellido>Lopez</apellido>
         <fechaNacimiento>1978-11-30</fechaNacimiento>
         <salario>45000.75</salario>
         <activo>false</activo>
         <horaEntrada>08:30:00</horaEntrada>
     </empleado>
 
-    <empleado id="6">
-        <nombre>Sofía</nombre>
+    <empleado id="_6">
+        <nombre>Sofia</nombre>
         <apellido>Ruiz</apellido>
         <fechaNacimiento>1995-07-15</fechaNacimiento>
         <salario>18500.00</salario>
@@ -55,8 +55,8 @@
         <horaEntrada>09:15:00</horaEntrada>
     </empleado>
 
-    <empleado id="7">
-        <nombre>Andrés</nombre>
+    <empleado id="_7">
+        <nombre>Andres</nombre>
         <apellido>Sanz</apellido>
         <fechaNacimiento>1982-01-10</fechaNacimiento>
         <salario>55000.25</salario>
@@ -64,16 +64,16 @@
         <horaEntrada>07:45:00</horaEntrada>
     </empleado>
 
-    <empleado id="8">
-        <nombre>Lucía</nombre>
-        <apellido>Pérez</apellido>
+    <empleado id="_8">
+        <nombre>Lucia</nombre>
+        <apellido>Perez</apellido>
         <fechaNacimiento>1992-09-05</fechaNacimiento>
         <salario>21000.00</salario>
         <activo>true</activo>
         <horaEntrada>08:00:00</horaEntrada>
     </empleado>
 
-    <empleado id="9">
+    <empleado id="_9">
         <nombre>Marcos</nombre>
         <apellido>Torres</apellido>
         <fechaNacimiento>1988-04-18</fechaNacimiento>
@@ -82,17 +82,17 @@
         <horaEntrada>10:00:00</horaEntrada>
     </empleado>
 
-    <empleado id="10">
+    <empleado id="_10">
         <nombre>Paula</nombre>
-        <apellido>Gómez</apellido>
+        <apellido>Gomez</apellido>
         <fechaNacimiento>1993-12-12</fechaNacimiento>
         <salario>28400.90</salario>
         <activo>true</activo>
         <horaEntrada>08:30:00</horaEntrada>
     </empleado>
 
-    <empleado id="11">
-        <nombre>Raúl</nombre>
+    <empleado id="_11">
+        <nombre>Raul</nombre>
         <apellido>Cano</apellido>
         <fechaNacimiento>1980-06-25</fechaNacimiento>
         <salario>33150.00</salario>
@@ -100,7 +100,7 @@
         <horaEntrada>07:00:00</horaEntrada>
     </empleado>
 
-    <empleado id="12">
+    <empleado id="_12">
         <nombre>Irene</nombre>
         <apellido>Blanco</apellido>
         <fechaNacimiento>1998-02-28</fechaNacimiento>
