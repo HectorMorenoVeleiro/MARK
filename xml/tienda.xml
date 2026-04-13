@@ -4,73 +4,73 @@
 
     <producto>
         <nombre>Teléfono móvil</nombre>
-        <precio>299</precio>
+        <precio>299.00</precio>
         <cantidad>10</cantidad>
     </producto>
 
     <producto>
         <nombre>Ordenador portatil</nombre>
-        <precio>899</precio>
+        <precio>899.00</precio>
         <cantidad>5</cantidad>
     </producto>
 
     <producto>
         <nombre>Monitor LED</nombre>
-        <precio>250</precio>
+        <precio>250.00</precio>
         <cantidad>15</cantidad>
     </producto>
 
     <producto>
         <nombre>Teclado Mecánico</nombre>
-        <precio>85</precio>
+        <precio>85.00</precio>
         <cantidad>30</cantidad>
     </producto>
 
     <producto>
         <nombre>Ratón Óptico</nombre>
-        <precio>25</precio>
+        <precio>25.00</precio>
         <cantidad>50</cantidad>
     </producto>
 
     <producto>
         <nombre>Alfombrilla XXL</nombre>
-        <precio>15</precio>
+        <precio>15.00</precio>
         <cantidad>100</cantidad>
     </producto>
 
     <producto>
         <nombre>Auriculares Pro</nombre>
-        <precio>120</precio>
+        <precio>120.00</precio>
         <cantidad>12</cantidad>
     </producto>
 
     <producto>
         <nombre>Webcam HD</nombre>
-        <precio>45</precio>
+        <precio>45.00</precio>
         <cantidad>20</cantidad>
     </producto>
 
     <producto>
         <nombre>Silla Gaming</nombre>
-        <precio>199</precio>
+        <precio>199.00</precio>
         <cantidad>5</cantidad>
     </producto>
 
     <producto>
         <nombre>Disco SSD 1TB</nombre>
-        <precio>90</precio>
+        <precio>90.00</precio>
         <cantidad>40</cantidad>
     </producto>
 
     <producto>
         <nombre>Memoria RAM 16GB</nombre>
-        <precio>75</precio>
+        <precio>75.00</precio>
         <cantidad>25</cantidad>
     </producto>
 
     <producto>
         <nombre>Cable HDMI 2m</nombre>
-        <precio>10</precio>
+        <precio>10.00</precio>
         <cantidad>60</cantidad>
     </producto>
 
