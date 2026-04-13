@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+    <!-- tipo simple para simplificar simplemente -->
+    <xs:simpleType name="CapitalizeLetter">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="2" />
+            <xs:pattern value="[A-Z][a-zA-Z\s]*" />
+        </xs:restriction>
+    </xs:simpleType>
+
     <!-- declaracion de elementos finales -->
-    <xs:element name="nombre">
-        <xs:simpleType>
-            <xs:restriction base="xs:string">
-                <xs:minLength value="2" />
-                <xs:pattern value="[A-Z][a-zA-Z\s]*" />
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:element>
-    <xs:element name="apellido">
-        <xs:simpleType>
-            <xs:restriction base="xs:string">
-                <xs:minLength value="2" />
-                <xs:pattern value="[A-Z][a-zA-Z\s]*" />
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:element>
+    <xs:element name="nombre" type="CapitalizeLetter" />
+    <xs:element name="apellido" type="CapitalizeLetter" />
     <xs:element name="fechaNacimiento" type="xs:date"></xs:element>
     <xs:element name="salario">
         <xs:simpleType>
