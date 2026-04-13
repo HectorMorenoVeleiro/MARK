@@ -4,14 +4,74 @@
 
     <producto>
         <nombre>Teléfono móvil</nombre>
-        <precio>299.99</precio>
+        <precio>299</precio>
         <cantidad>10</cantidad>
     </producto>
 
     <producto>
         <nombre>Ordenador portatil</nombre>
-        <precio>899.99</precio>
+        <precio>899</precio>
         <cantidad>5</cantidad>
+    </producto>
+
+    <producto>
+        <nombre>Monitor LED</nombre>
+        <precio>250</precio>
+        <cantidad>15</cantidad>
+    </producto>
+
+    <producto>
+        <nombre>Teclado Mecánico</nombre>
+        <precio>85</precio>
+        <cantidad>30</cantidad>
+    </producto>
+
+    <producto>
+        <nombre>Ratón Óptico</nombre>
+        <precio>25</precio>
+        <cantidad>50</cantidad>
+    </producto>
+
+    <producto>
+        <nombre>Alfombrilla XXL</nombre>
+        <precio>15</precio>
+        <cantidad>100</cantidad>
+    </producto>
+
+    <producto>
+        <nombre>Auriculares Pro</nombre>
+        <precio>120</precio>
+        <cantidad>12</cantidad>
+    </producto>
+
+    <producto>
+        <nombre>Webcam HD</nombre>
+        <precio>45</precio>
+        <cantidad>20</cantidad>
+    </producto>
+
+    <producto>
+        <nombre>Silla Gaming</nombre>
+        <precio>199</precio>
+        <cantidad>5</cantidad>
+    </producto>
+
+    <producto>
+        <nombre>Disco SSD 1TB</nombre>
+        <precio>90</precio>
+        <cantidad>40</cantidad>
+    </producto>
+
+    <producto>
+        <nombre>Memoria RAM 16GB</nombre>
+        <precio>75</precio>
+        <cantidad>25</cantidad>
+    </producto>
+
+    <producto>
+        <nombre>Cable HDMI 2m</nombre>
+        <precio>10</precio>
+        <cantidad>60</cantidad>
     </producto>
 
 </tienda>

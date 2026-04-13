@@ -2,9 +2,21 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <!-- declaracion de elementos finales -->
-    <xs:element name="nombre" type="xs:string" />
-    <xs:element name="precio" type="xs:string" />
-    <xs:element name="cantidad" type="xs:string" />
+    <xs:element name="nombre">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:minLength value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="precio">
+        <xs:simpleType>
+            <xs:restriction base="xs:integer">
+                <xs:minInclusive value="0" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="cantidad" type="xs:positiveInteger" />
 
     <!-- declaracion del elemento raiz -->
     <xs:element name="producto">
