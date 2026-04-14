@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+    <!-- declaracion de elementos finales -->
     <!-- tipo simple para simplificar simplemente -->
-    <xs:simpleType name="CapitalizeLetter">
+    <xs:simpleType name="CapitalizeLetterFirst">
         <xs:restriction base="xs:string">
             <xs:minLength value="2" />
             <xs:pattern value="[A-Z][a-zA-Z\s]*" />
         </xs:restriction>
     </xs:simpleType>
 
-    <!-- declaracion de elementos finales -->
-    <xs:element name="nombre" type="CapitalizeLetter" />
-    <xs:element name="apellido" type="CapitalizeLetter" />
-    <xs:element name="fechaNacimiento" type="xs:date"></xs:element>
+    <xs:element name="nombre" type="CapitalizeLetterFirst" />
+
+    <xs:element name="apellido" type="CapitalizeLetterFirst" />
+
+    <xs:element name="fechaNacimiento">
+        <!-- (1/1/1990 - 31/12/2004) restriction -->
+        <xs:simpleType>
+            <xs:restriction base="xs:date">
+                <xs:minInclusive value="1975-01-01" />
+                <xs:maxInclusive value="2004-12-31" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
     <xs:element name="salario">
         <xs:simpleType>
             <xs:restriction base="xs:decimal">
@@ -21,8 +32,19 @@
             </xs:restriction>
         </xs:simpleType>
     </xs:element>
-    <xs:element name="activo" type="xs:boolean"></xs:element>
-    <xs:element name="horaEntrada" type="xs:time"></xs:element>
+
+    <xs:element name="activo" type="xs:boolean" />
+
+    <xs:element name="horaEntrada">
+        <!-- (06h - 14h) restriction -->
+        <xs:simpleType>
+            <xs:restriction base="xs:time">
+                <xs:minInclusive value="06:00:00" />
+                <xs:maxInclusive value="10:00:00" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
 
     <!-- declaracion del elemento raiz -->
     <xs:element name="empleado">
