@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lenguajes_programacion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="lenguajes_programacion.xsd">
+
+    <lenguaje>
+        <nombre>Python</nombre>
+        <creador>Guido van Rossum</creador>
+        <anio_creacion>1991</anio_creacion>
+        <descripcion>Python is a high-level, interpreted, and general-purpose programming language.</descripcion>
+    </lenguaje>
+
+    <lenguaje>
+        <nombre>Java</nombre>
+        <creador>James Gosling</creador>
+        <anio_creacion>1995</anio_creacion>
+        <enlace_web>https://www.java.com</enlace_web>
+    </lenguaje>
+
+    <lenguaje>
+        <nombre>C++</nombre>
+        <creador>Bjarne Stroustrup</creador>
+        <anio_creacion>1985</anio_creacion>
+        <descripcion>C++ is a general-purpose programming language created as an extension of the C language.</descripcion>
+    </lenguaje>
+
+    <lenguaje>
+        <nombre>JavaScript</nombre>
+        <creador>Brendan Eich</creador>
+        <anio_creacion>1995</anio_creacion>
+        <enlace_web>https://developer.mozilla.org/es/docs/Web/JavaScript</enlace_web>
+    </lenguaje>
+
+    <lenguaje>
+        <nombre>C#</nombre>
+        <creador>Microsoft</creador>
+        <anio_creacion>2000</anio_creacion>
+        <descripcion>Modern, object-oriented programming language developed by Microsoft.</descripcion>
+    </lenguaje>
+
+    <lenguaje>
+        <nombre>Ruby</nombre>
+        <creador>Yukihiro Matsumoto</creador>
+        <anio_creacion>1995</anio_creacion>
+        <descripcion>A dynamic, open source programming language with a focus on simplicity.</descripcion>
+    </lenguaje>
+
+    <lenguaje>
+        <nombre>PHP</nombre>
+        <creador>Rasmus Lerdorf</creador>
+        <anio_creacion>1994</anio_creacion>
+        <enlace_web>https://www.php.net</enlace_web>
+    </lenguaje>
+
+    <lenguaje>
+        <nombre>Swift</nombre>
+        <creador>Apple Inc.</creador>
+        <anio_creacion>2014</anio_creacion>
+        <descripcion>A powerful and intuitive programming language for Apple ecosystems.</descripcion>
+    </lenguaje>
+
+    <lenguaje>
+        <nombre>Rust</nombre>
+        <creador>Graydon Hoare</creador>
+        <anio_creacion>2010</anio_creacion>
+        <enlace_web>https://www.rust-lang.org</enlace_web>
+    </lenguaje>
+
+    <lenguaje>
+        <nombre>Go</nombre>
+        <creador>Robert Griesemer, Rob Pike, and Ken Thompson</creador>
+        <anio_creacion>2009</anio_creacion>
+        <descripcion>An open-source programming language supported by Google.</descripcion>
+    </lenguaje>
+</lenguajes_programacion>

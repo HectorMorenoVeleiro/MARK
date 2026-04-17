@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- declaracion de elementos finales -->
+    <!-- tipo simple para simplificar simplemente -->
+    <xs:simpleType name="CapitalizeLetterFirst">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="2" />
+            <xs:pattern value="[A-Z].*" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="nombre" type="xs:string" />
+    <xs:element name="creador" type="CapitalizeLetterFirst" />
+    <xs:element name="anio_creacion" type="xs:integer" />
+    <xs:element name="descripcion" type="xs:string" />
+    <xs:element name="enlace_web" type="xs:anyURI" />
+
+
+    <!-- declaracion del elemento raiz -->
+    <xs:element name="lenguaje">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre" />
+                <xs:element ref="creador" />
+                <xs:element ref="anio_creacion" />
+                <xs:choice>
+                    <xs:element ref="enlace_web" />
+                    <xs:element ref="descripcion" />
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- declaracion del elemento empresa con mas elementos-->
+    <xs:element name="lenguajes_programacion">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="lenguaje" maxOccurs="10" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>
