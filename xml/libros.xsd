@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
     <!-- declaracion de elementos finales -->
-    <xs:element name="title" type="xs:string" />
-    <xs:element name="author" type="xs:string" />
-    <xs:element name="year" type="xs:integer" />
-    <xs:element name="publisher" type="xs:string" />
-    <!-- para el catalogo de llama biblioteca es opcional -->
-    <xs:element name="library" type="xs:string" />
-    <xs:element name="nsqboolean" type="xs:boolean" />
+    <xsd:element name="title" type="xsd:string" />
+    <xsd:element name="author" type="xsd:string" />
+    <xsd:element name="year" type="xsd:integer" />
+    <xsd:element name="publisher" type="xsd:string" />
+    <xsd:attribute name="biblioteca" type="xsd:string" />
 
     <!-- declaracion del elemento raiz -->
-    <xs:element name="book">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="title" />
-                <xs:element ref="author" />
-                <xs:element ref="year" />
-                <xs:element ref="publisher" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <xsd:element name="book">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="title" />
+                <xsd:element ref="author" />
+                <xsd:element ref="year" />
+                <xsd:element ref="publisher" />
+            </xsd:sequence>
+            <xsd:attribute name="prestado" type="xsd:boolean" />
+        </xsd:complexType>
+    </xsd:element>
 
     <!-- declaracion del elemento empresa con mas elementos-->
-    <xs:element name="catalog">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="book" maxOccurs="10" />
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-</xs:schema>
+    <xsd:element name="catalog">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="book" maxOccurs="10" />
+            </xsd:sequence>
+            <xsd:attribute ref="biblioteca" use="optional" />
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
