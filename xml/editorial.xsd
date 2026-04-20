@@ -20,7 +20,7 @@
 
     <xs:attribute name="numero">
         <xs:simpleType>
-            <xs:restriction base="xs:string">
+            <xs:restriction base="xs:integer">
                 <xs:enumeration value="1" />
                 <xs:enumeration value="2" />
                 <xs:enumeration value="3" />
