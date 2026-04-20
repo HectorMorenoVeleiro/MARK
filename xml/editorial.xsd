@@ -7,6 +7,28 @@
     <xs:element name="descripcion" type="xs:string" />
     <xs:element name="fecha_informe" type="xs:date" />
 
+    <!-- atributos simples-->
+    <xs:attribute name="nombre">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="Norte" />
+                <xs:enumeration value="Centro" />
+                <xs:enumeration value="Sur" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <xs:attribute name="numero">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="1" />
+                <xs:enumeration value="2" />
+                <xs:enumeration value="3" />
+                <xs:enumeration value="4" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
     <!-- elemento simple un poco mas complejo -->
     <xs:element name="trimestre">
         <xs:complexType>
@@ -35,7 +57,7 @@
             <xs:sequence>
                 <xs:element ref="trimestre" maxOccurs="unbounded" />
             </xs:sequence>
-            <xs:attribute name="nombre" type="xs:string" />
+            <xs:attribute ref="nombre" />
         </xs:complexType>
     </xs:element>
 
