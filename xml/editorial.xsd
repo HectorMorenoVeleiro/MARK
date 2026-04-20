@@ -40,7 +40,7 @@
     <xs:element name="datos">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="region" maxOccurs="unbounded" />
+                <xs:element ref="region" minOccurs="3" maxOccurs="3" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
