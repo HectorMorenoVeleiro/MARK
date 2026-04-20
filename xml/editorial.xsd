@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <!-- elementos finales -->
+    <!-- elementos simples -->
     <xs:element name="editorial" type="xs:string" />
     <xs:element name="titulo" type="xs:string" />
     <xs:element name="descripcion" type="xs:string" />
     <xs:element name="fecha_informe" type="xs:date" />
 
+    <!-- elemento simple un poco mas complejo -->
+    <xs:element name="trimestre">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="numero" type="xs:integer" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- elementos complejos -->
     <xs:element name="cabecera">
         <xs:complexType>
             <xs:sequence>
@@ -15,16 +27,6 @@
                 <xs:element ref="descripcion" />
                 <xs:element ref="fecha_informe" />
             </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="trimestre">
-        <xs:complexType>
-            <xs:simpleContent>
-                <xs:extension base="xs:string">
-                    <xs:attribute name="numero" type="xs:integer" />
-                </xs:extension>
-            </xs:simpleContent>
         </xs:complexType>
     </xs:element>
 
