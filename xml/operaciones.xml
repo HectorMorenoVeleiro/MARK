@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operaciones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="operaciones.xsd">
+
+    <operacion>
+        <compra>
+            <titulos_comprados>
+                <titulo>Crónica de una muerte anunciada</titulo>
+                <proveedor>Librería Central</proveedor>
+                <fecha_compra>2024-01-10</fecha_compra>
+            </titulos_comprados>
+        </compra>
+    </operacion>
+
+    <operacion>
+        <venta>
+            <titulos_vendidos>
+                <titulo>Drácula</titulo>
+                <num_libros_vendidos>12</num_libros_vendidos>
+                <entregado>true</entregado>
+                <importe moneda="EUR">120.00</importe>
+            </titulos_vendidos>
+        </venta>
+    </operacion>
+
+    <operacion>
+        <compra>
+            <titulos_comprados>
+                <titulo>Fundación</titulo>
+                <titulo>Fundación e Imperio</titulo>
+                <titulo>Segunda Fundación</titulo>
+                <proveedor>Distribuidora Galáctica</proveedor>
+                <fecha_compra>2024-02-15</fecha_compra>
+            </titulos_comprados>
+        </compra>
+    </operacion>
+
+    <operacion>
+        <venta>
+            <titulos_vendidos>
+                <titulo>El resplandor</titulo>
+                <num_libros_vendidos>1</num_libros_vendidos>
+                <importe moneda="USD">19.99</importe>
+            </titulos_vendidos>
+        </venta>
+    </operacion>
+
+    <operacion>
+        <compra>
+            <titulos_comprados>
+                <titulo>Steve Jobs Biografía</titulo>
+                <proveedor>Amazon B2B</proveedor>
+                <fecha_compra>2024-03-01</fecha_compra>
+            </titulos_comprados>
+        </compra>
+        <venta>
+            <titulos_vendidos>
+                <titulo>El código Da Vinci</titulo>
+                <num_libros_vendidos>3</num_libros_vendidos>
+                <entregado>false</entregado>
+                <importe moneda="GBP">35.50</importe>
+            </titulos_vendidos>
+        </venta>
+    </operacion>
+
+    <operacion>
+        <compra>
+            <titulos_comprados>
+                <titulo>Harry Potter 1</titulo>
+                <titulo>Harry Potter 2</titulo>
+                <titulo>Harry Potter 3</titulo>
+                <proveedor>Salamandra</proveedor>
+                <fecha_compra>2024-03-20</fecha_compra>
+            </titulos_comprados>
+        </compra>
+    </operacion>
+</operaciones>
