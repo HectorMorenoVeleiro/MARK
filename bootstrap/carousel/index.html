@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>Carousel Template · Bootstrap v5.3</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/pricing/"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://getbootstrap.com/docs/5.3/examples/pricing/pricing.css"
+      rel="stylesheet"
+    />
+    <meta name="theme-color" content="#712cf9" />
+    <style>
+      [data-bs-theme="light"] .btn-secondary {
+        background-color: #7a0030;
+        border-color: #7a0030;
+        color: #fff;
+      }
+
+      [data-bs-theme="light"] .btn-secondary:hover {
+        background-color: #5a0022;
+        border-color: #5a0022;
+        color: #fff;
+      }
+
+      [data-bs-theme="dark"] .btn-secondary {
+        background-color: #f7cbdc;
+        border-color: #f7cbdc;
+        color: #3d0017;
+      }
+
+      [data-bs-theme="dark"] .btn-secondary:hover {
+        background-color: #fde8f0;
+        border-color: #fde8f0;
+        color: #3d0017;
+      }
+      [data-bs-theme="light"] .border-primary {
+        border-color: #3d0017 !important;
+      }
+
+      [data-bs-theme="dark"] .border-primary {
+        border-color: #fde8f0 !important;
+      }
+
+      [data-bs-theme="light"] .btn-primary {
+        background-color: #3d0017;
+        border-color: #3d0017;
+      }
+
+      [data-bs-theme="light"] .btn-primary:hover {
+        background-color: #5a0022;
+        border-color: #5a0022;
+      }
+
+      [data-bs-theme="dark"] .btn-primary {
+        background-color: #fde8f0;
+        border-color: #fde8f0;
+        color: #3d0017;
+      }
+
+      [data-bs-theme="dark"] .btn-primary:hover {
+        background-color: #c9a0b0;
+        border-color: #c9a0b0;
+        color: #3d0017;
+      }
+
+      [data-bs-theme="dark"] .text-bg-primary {
+        background-color: #fde8f0 !important;
+        color: #3d0017 !important;
+      }
+
+      [data-bs-theme="light"] .text-bg-primary {
+        background-color: #3d0017 !important;
+        color: #fde8f0 !important;
+      }
+
+      [data-bs-theme="dark"] .compare-plans {
+        color: #3d0017;
+      }
+
+      [data-bs-theme="light"] .btn-outline-primary {
+        border-color: #3d0017;
+        color: #3d0017;
+      }
+
+      [data-bs-theme="light"] .btn-outline-primary:hover {
+        background-color: #3d0017;
+        border-color: #3d0017;
+        color: #fff;
+      }
+
+      [data-bs-theme="dark"] .btn-outline-primary {
+        border-color: #fde8f0;
+        color: #fde8f0;
+      }
+
+      [data-bs-theme="dark"] .btn-outline-primary:hover {
+        background-color: #fde8f0;
+        border-color: #fde8f0;
+        color: #3d0017;
+      }
+      [data-bs-theme="light"] {
+        --bs-body-bg: #fde8f0;
+        --bs-secondary-bg: #f7cbdc;
+      }
+
+      [data-bs-theme="dark"] {
+        --bs-body-bg: #411e2b;
+        --bs-secondary-bg: #441024;
+      }
+      /* GLOBAL STYLES
+-------------------------------------------------- */
+      /* Padding below the footer and lighter body text */
+
+      body {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        color: rgb(var(--bs-tertiary-color-rgb));
+      }
+
+      /* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+      .navbar-brand {
+        font-family: "Space Mono", monospace;
+        font-weight: 800;
+      }
+      /* Carousel base class */
+      .carousel {
+        margin-bottom: 4rem;
+      }
+      /* Since positioning the image, we need to help out the caption */
+      .carousel-caption {
+        bottom: 3rem;
+        z-index: 10;
+      }
+
+      /* Declare heights because of positioning of img element */
+      .carousel-item {
+        height: 32rem;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+    <script>
+      (() => {
+        "use strict";
+        const getStoredTheme = () => localStorage.getItem("theme");
+        const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
+        const getPreferredTheme = () => {
+          const storedTheme = getStoredTheme();
+          if (storedTheme) return storedTheme;
+          return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        };
+        const setTheme = (theme) => {
+          if (theme === "auto") {
+            document.documentElement.setAttribute(
+              "data-bs-theme",
+              window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light",
+            );
+          } else {
+            document.documentElement.setAttribute("data-bs-theme", theme);
+          }
+        };
+        setTheme(getPreferredTheme());
+        const showActiveTheme = (theme, focus = false) => {
+          const themeSwitcher = document.querySelector("#bd-theme");
+          if (!themeSwitcher) return;
+          const themeSwitcherText = document.querySelector("#bd-theme-text");
+          const activeThemeIcon = document.querySelector(
+            ".theme-icon-active use",
+          );
+          const btnToActive = document.querySelector(
+            `[data-bs-theme-value="${theme}"]`,
+          );
+          const svgOfActiveBtn = btnToActive
+            .querySelector("svg use")
+            .getAttribute("href");
+          document
+            .querySelectorAll("[data-bs-theme-value]")
+            .forEach((element) => {
+              element.classList.remove("active");
+              element.setAttribute("aria-pressed", "false");
+            });
+          btnToActive.classList.add("active");
+          btnToActive.setAttribute("aria-pressed", "true");
+          activeThemeIcon.setAttribute("href", svgOfActiveBtn);
+          themeSwitcher.setAttribute(
+            "aria-label",
+            `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`,
+          );
+          if (focus) themeSwitcher.focus();
+        };
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", () => {
+            const storedTheme = getStoredTheme();
+            if (storedTheme !== "light" && storedTheme !== "dark")
+              setTheme(getPreferredTheme());
+          });
+        window.addEventListener("DOMContentLoaded", () => {
+          showActiveTheme(getPreferredTheme());
+          document
+            .querySelectorAll("[data-bs-theme-value]")
+            .forEach((toggle) => {
+              toggle.addEventListener("click", () => {
+                const theme = toggle.dataset.bsThemeValue;
+                setStoredTheme(theme);
+                setTheme(theme);
+                showActiveTheme(theme, true);
+              });
+            });
+        });
+      })();
+    </script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      ...
+    />
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <header data-bs-theme="dark">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <img
+            src="data:image/png;base64,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"
+            alt="logo"
+            width="60"
+            height="60"
+            class="me-2"
+          />
+          <a class="navbar-brand" href="https://www.nintendo.com/es-es/"
+            >N I N T E N D O</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="https://www.nintendo.com/es-es/"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.nintendo.com/es-es/"
+                  >Link</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://techcrunch.com/wp-content/uploads/2022/05/GettyImages-669409270.jpg"
+              alt="logo"
+              class="bd-placeholder-img img-fluid w-100 h-100 object-fit-cover"
+            />
+
+            <div class="container">
+              <div class="carousel-caption text-start">
+                <h1 style="color: #fdcee0">Nintendo</h1>
+                <p style="color: #f0ecee">The biggest game company</p>
+                <p>
+                  <a
+                    class="btn btn-lg btn-primary"
+                    href="https://www.nintendo.com/es-es/"
+                    >Sign up today</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images7.alphacoders.com/127/thumb-1920-1279639.jpg"
+              alt="logo"
+              class="bd-placeholder-img img-fluid w-100 h-100 object-fit-cover"
+            />
+            
+            <div class="container">
+              <div class="carousel-caption">
+                <h1 style="color: #4d0b24">Kirby</h1>
+                <p style="color: #2e061a">
+                  One of the most representative Games from Nintendo
+                </p>
+                <p>
+                  <a
+                    class="btn btn-lg btn-primary"
+                    href="https://www.nintendo.com/es-es/"
+                    >Learn more</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://images.nintendolife.com/668c372665c52/1280x720.jpg"
+              alt="logo"
+              class="bd-placeholder-img img-fluid w-100 h-100 object-fit-cover"
+            />
+            
+            <div class="container">
+              <div class="carousel-caption text-end">
+                <h1 style="color: #fdcee0">But not only that</h1>
+                <p style="color: #ffd9e8">
+                  Nintendo has lots of other games that are as equal or more
+                  famous.
+                </p>
+                <p>
+                  <a
+                    class="btn btn-lg btn-primary"
+                    href="https://www.nintendo.com/es-es/"
+                    >Browse gallery</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="container marketing">
+        <div class="row">
+          <div class="col-lg-4">
+            <img
+              src="https://th.bing.com/th/id/OIP.NHVWYIwPwj6FsjynxLBNJwHaHa?w=153&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+              class="rounded-circle"
+              width="140"
+              height="140"
+              alt="Nintendo Logo"
+              style="object-fit: cover"
+            />
+            <h2 class="fw-normal">Kirby & the forgotten land (2025)</h2>
+            <p>Kirby is sent through a dimensional vortex to a new world full of the crumbling ruins of a long-lost civilization<p>
+              <a
+                class="btn btn-secondary"
+                href="https://www.nintendo.com/es-es/"
+                >View details &raquo;</a
+              >
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <img
+              src="https://th.bing.com/th/id/OIP.S38IWBdLHcNqT6QTtY3dRQHaHa?w=161&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+              class="rounded-circle"
+              width="140"
+              height="140"
+              alt="Nintendo Logo"
+              style="object-fit: cover"
+            />
+            <h2 class="fw-normal">kirby's dream buffet (2022)</h2>
+            <p> Small action/racing spin-off game for the Kirby series, released digitally on the Nintendo Switch</p>
+            <p>
+              <a
+                class="btn btn-secondary"
+                href="https://www.nintendo.com/es-es/"
+                >View details &raquo;</a
+              >
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <img
+              src="https://th.bing.com/th/id/OIP.xW0ULC-GRn-POAHKrkOiCgHaHa?w=173&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+              class="rounded-circle"
+              width="140"
+              height="140"
+              alt="Nintendo Logo"
+              style="object-fit: cover"
+            />
+            <h2 class="fw-normal">Kirby fighters (2020)</h2>
+            <p>A fighting game where Kirby battles other Kirbys using various Copy Abilities until all opponents are defeated</p>
+            <p>
+              <a
+                class="btn btn-secondary"
+                href="https://www.nintendo.com/es-es/"
+                >View details &raquo;</a
+              >
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <img
+              src="https://th.bing.com/th/id/OIP.jJTSxq2nWM990pIM0v2JVQHaHa?w=170&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+              class="rounded-circle"
+              width="140"
+              height="140"
+              alt="Nintendo Logo"
+              style="object-fit: cover"
+            />
+            <h2 class="fw-normal">Super kirby clash (2019)</h2>
+            <p>A free-to-start spin-off game in the Kirby series released for the Nintendo Switch<p>
+              <a
+                class="btn btn-secondary"
+                href="https://www.nintendo.com/es-es/"
+                >View details &raquo;</a
+              >
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <img
+              src="data:image/webp;base64,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"class="rounded-circle"
+              width="140"
+              height="140"
+              alt="Nintendo Logo"
+              style="object-fit: cover"
+            />
+            <h2 class="fw-normal">Kirby star allies (2018)</h2>
+            <p>side-scrolling platformer game with three-dimensional visuals that succeeds the Nintendo 3DS titles of Kirby: Triple Deluxe and Kirby: Planet Robobot in general style<p>
+              <a
+                class="btn btn-secondary"
+                href="https://www.nintendo.com/es-es/"
+                >View details &raquo;</a
+              >
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <img
+              src="https://th.bing.com/th/id/OIP.k9vEQMu0nLs-41a_966aKAHaGx?w=164&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+              class="rounded-circle"
+              width="140"
+              height="140"
+              alt="Nintendo Logo"
+              style="object-fit: cover"
+            />
+            <h2 class="fw-normal">Kirby battle royale (2017)</h2>
+            <p>an action-multiplayer spin-off Kirby series game for the Nintendo 3DS<p>
+              <a
+                class="btn btn-secondary"
+                href="https://www.nintendo.com/es-es/"
+                >View details &raquo;</a
+              >
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <img
+              src="https://th.bing.com/th/id/OIP.K9v48ekEEYXd28QXmdaktgHaG3?w=180&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+              class="rounded-circle"
+              width="140"
+              height="140"
+              alt="Nintendo Logo"
+              style="object-fit: cover"
+            />
+            <h2 class="fw-normal">Kirby planet robobot (2016)</h2>
+            <p>The central theme of this game revolves around robotic and futuristic industrial settings<p>
+              <a
+                class="btn btn-secondary"
+                href="https://www.nintendo.com/es-es/"
+                >View details &raquo;</a
+              >
+            </p>
+          </div>
+        </div>
+        <hr class="featurette-divider" />
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">32nd anniversary of the Kirby franchise</h2>
+            <p class="lead">We are celebrating the 32nd anniversary of the Kirby franchise, marking over three decades of iconic gaming history and the long-standing legacy of Nintendo's beloved character since its debut in 1992
+            </p>
+          </div>
+          <div class="col-md-5">
+            <img 
+              src="https://th.bing.com/th/id/OIP.VfWBlmeWCAmKq4_1ruQ0oAHaFA?w=220&h=180&c=7&r=0&o=7&pid=1.7&rm=3" 
+              class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" 
+              width="500" 
+              height="500" 
+              alt="Nintendo Feature"
+              style="object-fit: cover;"
+            >
+              <title>Placeholder</title>
+              <rect
+                width="100%"
+                height="100%"
+                fill="var(--bs-secondary-bg)"
+              ></rect>
+              <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
+               
+              </text>
+            </svg>
+          </div>
+        </div>
+        <hr class="featurette-divider" />
+      </div>
+      <footer class="container">
+        <p class="float-end">
+          <a href="https://www.nintendo.com/es-es/">Back to top</a>
+        </p>
+        <p>
+          &copy; 2017–2025 Company, Inc. &middot;
+          <a href="https://www.nintendo.com/es-es/">Privacy</a> &middot;
+          <a href="https://www.nintendo.com/es-es/">Terms</a>
+        </p>
+      </footer>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
