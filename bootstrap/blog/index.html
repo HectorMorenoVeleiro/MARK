@@ -1,20 +1,16 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="es" data-bs-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
     <meta
-      name="author"
-      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+      name="description"
+      content="Pickaxe & Beer - Blog de desarrollo indie"
     />
-    <title>Blog Template · Bootstrap v5.3</title>
-    <link
-      rel="canonical"
-      href="https://getbootstrap.com/docs/5.3/examples/blog/"
-    />
+    <meta name="author" content="PAB Dev Team" />
+    <title>Pickaxe &amp; Beer · Dev Blog</title>
 
-    <!-- Bootstrap CSS (CDN oficial) -->
+    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -28,120 +24,145 @@
       rel="stylesheet"
     />
 
-    <!-- Bootstrap Icons (CDN oficial) -->
+    <!-- Bootstrap Icons -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
       rel="stylesheet"
     />
 
-    <meta name="theme-color" content="#712cf9" />
-
     <style>
-      [data-bs-theme="light"] .border-primary {
-        border-color: #3d0017 !important;
-      }
+      /* ──────────────────────────────────────────────
+         PALETA VERDE / MARRÓN DESATURADA
+         Light:  pergamino cálido, verde musgo
+         Dark:   tierra oscura, verde apagado
+      ────────────────────────────────────────────── */
 
-      [data-bs-theme="dark"] .border-primary {
-        border-color: #fde8f0 !important;
-      }
-
-      [data-bs-theme="light"] .btn-primary {
-        background-color: #3d0017;
-        border-color: #3d0017;
-      }
-
-      [data-bs-theme="light"] .btn-primary:hover {
-        background-color: #5a0022;
-        border-color: #5a0022;
-      }
-
-      [data-bs-theme="dark"] .btn-primary {
-        background-color: #fde8f0;
-        border-color: #fde8f0;
-        color: #3d0017;
-      }
-
-      [data-bs-theme="dark"] .btn-primary:hover {
-        background-color: #c9a0b0;
-        border-color: #c9a0b0;
-        color: #3d0017;
-      }
-
-      [data-bs-theme="dark"] .text-bg-primary {
-        background-color: #fde8f0 !important;
-        color: #3d0017 !important;
-      }
-
-      [data-bs-theme="light"] .text-bg-primary {
-        background-color: #3d0017 !important;
-        color: #fde8f0 !important;
-      }
-
-      [data-bs-theme="dark"] .compare-plans {
-        color: #3d0017;
-      }
-
-      [data-bs-theme="light"] .btn-outline-primary {
-        border-color: #3d0017;
-        color: #3d0017;
-      }
-
-      [data-bs-theme="light"] .btn-outline-primary:hover {
-        background-color: #3d0017;
-        border-color: #3d0017;
-        color: #fff;
-      }
-
-      [data-bs-theme="dark"] .btn-outline-primary {
-        border-color: #fde8f0;
-        color: #fde8f0;
-      }
-
-      [data-bs-theme="dark"] .btn-outline-primary:hover {
-        background-color: #fde8f0;
-        border-color: #fde8f0;
-        color: #3d0017;
-      }
       [data-bs-theme="light"] {
-        --bs-body-bg: #fde8f0;
-        --bs-secondary-bg: #f7cbdc;
+        --bs-body-bg: #e8e0ce;
+        --bs-secondary-bg: #d6cab0;
+        --bs-tertiary-bg: #cfc3a3;
+        --bs-body-color: #2c2416;
+        --bs-secondary-color: #5a4e38;
+        --bs-border-color: #b0a080;
+        --bs-link-color: #3d5c2a;
+        --bs-link-hover-color: #2a3f1c;
+        --bs-tertiary-bg-rgb: 207, 195, 163;
+        --pab-accent: #4a6e30;
+        --pab-accent-dark: #2a3f1c;
+        --pab-accent-light: #6a9445;
+        --pab-btn-text: #f0ead8;
       }
 
       [data-bs-theme="dark"] {
-        --bs-body-bg: #411e2b;
-        --bs-secondary-bg: #441024;
+        --bs-body-bg: #1e1a10;
+        --bs-secondary-bg: #2a2416;
+        --bs-tertiary-bg: #241e12;
+        --bs-body-color: #d4c9a8;
+        --bs-secondary-color: #a09070;
+        --bs-border-color: #4a4030;
+        --bs-link-color: #8aaa60;
+        --bs-link-hover-color: #a0c070;
+        --bs-tertiary-bg-rgb: 36, 30, 18;
+        --pab-accent: #7a9a50;
+        --pab-accent-dark: #5a7a38;
+        --pab-accent-light: #9ab870;
+        --pab-btn-text: #1a1608;
       }
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
+
+      /* Botones y bordes primarios */
+      .btn-primary {
+        background-color: var(--pab-accent) !important;
+        border-color: var(--pab-accent) !important;
+        color: var(--pab-btn-text) !important;
+      }
+      .btn-primary:hover {
+        background-color: var(--pab-accent-dark) !important;
+        border-color: var(--pab-accent-dark) !important;
+        color: var(--pab-btn-text) !important;
+      }
+      .btn-outline-primary {
+        border-color: var(--pab-accent) !important;
+        color: var(--pab-accent) !important;
+      }
+      .btn-outline-primary:hover {
+        background-color: var(--pab-accent) !important;
+        border-color: var(--pab-accent) !important;
+        color: var(--pab-btn-text) !important;
+      }
+      .border-primary {
+        border-color: var(--pab-accent) !important;
+      }
+      .text-bg-primary {
+        background-color: var(--pab-accent) !important;
+        color: var(--pab-btn-text) !important;
+      }
+
+      /* Botón del toggle */
+      .btn-bd-primary {
+        background-color: var(--pab-accent);
+        border-color: var(--pab-accent);
+        color: var(--pab-btn-text);
+        font-weight: 600;
+      }
+      .btn-bd-primary:hover {
+        background-color: var(--pab-accent-dark);
+        border-color: var(--pab-accent-dark);
+        color: var(--pab-btn-text);
+      }
+
+      /* bg-body-secondary y tertiary usan las vars de BS que sobreescribimos */
+      .bg-body-secondary {
+        background-color: var(--bs-secondary-bg) !important;
+      }
+      .bg-body-tertiary {
+        background-color: var(--bs-tertiary-bg) !important;
+      }
+
+      /* Tipografía */
+      .blog-header-logo {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 2.25rem;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", Georgia, serif;
+      }
+      .display-4 {
+        font-size: 2.5rem;
       }
       @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        .display-4 {
+          font-size: 3rem;
         }
       }
-      .b-example-divider {
-        width: 100%;
-        height: 3rem;
-        background-color: rgba(0, 0, 0, 0.1);
-        border: solid rgba(0, 0, 0, 0.15);
-        border-width: 1px 0;
-        box-shadow:
-          inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
-          inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+
+      /* Layout */
+      .flex-auto {
+        flex: 0 0 auto;
       }
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
+      @media (min-width: 768px) {
+        .h-md-250 {
+          height: 250px;
+        }
       }
-      .bi {
-        vertical-align: -0.125em;
-        fill: currentColor;
+      .blog-pagination {
+        margin-bottom: 4rem;
       }
+      .blog-pagination > .btn {
+        border-radius: 2rem;
+      }
+      .blog-post {
+        margin-bottom: 4rem;
+      }
+      .blog-post-meta {
+        margin-bottom: 1.25rem;
+        color: var(--bs-secondary-color);
+      }
+
       .nav-scroller {
         position: relative;
         z-index: 2;
@@ -158,21 +179,8 @@
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
       }
-      .btn-bd-primary {
-        --bd-violet-bg: #712cf9;
-        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-        --bs-btn-font-weight: 600;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet-bg);
-        --bs-btn-border-color: var(--bd-violet-bg);
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-      }
+
+      /* Toggle */
       .bd-mode-toggle {
         z-index: 1500;
       }
@@ -184,96 +192,103 @@
         display: block !important;
       }
 
-      /* Blog styles (equivalente al blog.css local) */
-      .blog-header-logo {
-        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-        font-size: 2.25rem;
+      /* Thumbnails */
+      .thumbnail-mine {
+        background: linear-gradient(135deg, #2a3318, #3d4a22, #1a2210);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
       }
-      .blog-header-logo:hover {
-        text-decoration: none;
+      .thumbnail-gnome {
+        background: linear-gradient(135deg, #3a4a1e, #56682e, #28330e);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
       }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-      }
-      .display-4 {
-        font-size: 2.5rem;
-      }
-      @media (min-width: 768px) {
-        .display-4 {
-          font-size: 3rem;
-        }
-      }
-      .flex-auto {
-        flex: 0 0 auto;
-      }
-      .h-250 {
-        height: 250px;
-      }
-      @media (min-width: 768px) {
-        .h-md-250 {
-          height: 250px;
-        }
+      .thumbnail-village {
+        background: linear-gradient(135deg, #4a3a1a, #6b5228, #302010);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
       }
 
-      /* Sidebar modules for demo */
-      .sidebar-module {
-        padding: 1rem;
+      /* Etiquetas */
+      .tag-devlog {
+        color: #5c7a30;
       }
-      .sidebar-module-inset {
-        padding: 1rem;
-        background-color: #f5f5f5;
-        border-radius: 0.25rem;
+      .tag-design {
+        color: #7a6020;
       }
-      .sidebar-module-inset p:last-child,
-      .sidebar-module-inset ul:last-child,
-      .sidebar-module-inset ol:last-child {
-        margin-bottom: 0;
+      .tag-gameplay {
+        color: #8a4a20;
       }
-
-      /* Pagination */
-      .blog-pagination {
-        margin-bottom: 4rem;
-      }
-      .blog-pagination > .btn {
-        border-radius: 2rem;
+      .tag-lore {
+        color: #4a6030;
       }
 
-      /* Blog posts */
-      .blog-post {
-        margin-bottom: 4rem;
+      /* Barra de sobriedad */
+      .sobriety-bar {
+        height: 20px;
+        border-radius: 10px;
+        background: linear-gradient(
+          90deg,
+          #8a2020 0%,
+          #a07828 40%,
+          #4a7030 80%
+        );
+        overflow: hidden;
+        border: 2px solid rgba(0, 0, 0, 0.25);
       }
-      .blog-post-title {
-        font-size: 2.5rem;
+      .sobriety-fill {
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45);
+        float: right;
+        width: 75%;
+        border-radius: 0 8px 8px 0;
       }
-      .blog-post-meta {
-        margin-bottom: 1.25rem;
-        color: #727272;
+
+      /* Badge */
+      .deepstone-badge {
+        background: linear-gradient(135deg, #3a4a1e, #28330e);
+        color: #a0c070;
+        border: 1px solid #56682e;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 2px 8px;
+        border-radius: 3px;
+      }
+
+      /* Blockquote */
+      .blockquote {
+        border-left: 4px solid var(--pab-accent);
+        padding-left: 1rem;
+        font-style: italic;
+        color: var(--bs-secondary-color);
       }
     </style>
   </head>
   <body>
-    <!-- Color mode toggle -->
+    <!-- Toggle de tema -->
     <div
       class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
     >
       <button
-        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center gap-2"
         id="bd-theme"
         type="button"
         aria-expanded="false"
         data-bs-toggle="dropdown"
-        aria-label="Toggle theme (auto)"
+        aria-label="Cambiar tema"
       >
         <i
           class="bi bi-circle-half my-1 theme-icon-active"
           aria-hidden="true"
         ></i>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        <span class="visually-hidden" id="bd-theme-text">Cambiar tema</span>
       </button>
       <ul
         class="dropdown-menu dropdown-menu-end shadow"
@@ -282,40 +297,34 @@
         <li>
           <button
             type="button"
-            class="dropdown-item d-flex align-items-center"
+            class="dropdown-item d-flex align-items-center gap-2"
             data-bs-theme-value="light"
             aria-pressed="false"
           >
-            <i class="bi bi-sun-fill me-2 opacity-50" aria-hidden="true"></i>
-            Light
-            <i class="bi bi-check2 ms-auto d-none" aria-hidden="true"></i>
+            <i class="bi bi-sun-fill opacity-50"></i> Claro
+            <i class="bi bi-check2 ms-auto d-none"></i>
           </button>
         </li>
         <li>
           <button
             type="button"
-            class="dropdown-item d-flex align-items-center"
+            class="dropdown-item d-flex align-items-center gap-2"
             data-bs-theme-value="dark"
             aria-pressed="false"
           >
-            <i
-              class="bi bi-moon-stars-fill me-2 opacity-50"
-              aria-hidden="true"
-            ></i>
-            Dark
-            <i class="bi bi-check2 ms-auto d-none" aria-hidden="true"></i>
+            <i class="bi bi-moon-stars-fill opacity-50"></i> Oscuro
+            <i class="bi bi-check2 ms-auto d-none"></i>
           </button>
         </li>
         <li>
           <button
             type="button"
-            class="dropdown-item d-flex align-items-center active"
+            class="dropdown-item d-flex align-items-center gap-2 active"
             data-bs-theme-value="auto"
             aria-pressed="true"
           >
-            <i class="bi bi-circle-half me-2 opacity-50" aria-hidden="true"></i>
-            Auto
-            <i class="bi bi-check2 ms-auto d-none" aria-hidden="true"></i>
+            <i class="bi bi-circle-half opacity-50"></i> Auto
+            <i class="bi bi-check2 ms-auto d-none"></i>
           </button>
         </li>
       </ul>
@@ -325,20 +334,21 @@
       <header class="border-bottom lh-1 py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
-            <a class="link-secondary" href="#">Subscribe</a>
+            <a class="link-secondary" href="#">Suscribirse</a>
           </div>
           <div class="col-4 text-center">
             <a
               class="blog-header-logo text-body-emphasis text-decoration-none"
               href="#"
-              >Pickaxe & Beer</a
             >
+              Pickaxe &amp; Beer
+            </a>
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">
-            <a class="link-secondary" href="#" aria-label="Search">
-              <i class="bi bi-search mx-3 fs-5" aria-hidden="true"></i>
+            <a class="link-secondary" href="#" aria-label="Buscar">
+              <i class="bi bi-search mx-3 fs-5"></i>
             </a>
-            <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+            <a class="btn btn-sm btn-outline-secondary" href="#">Registro</a>
           </div>
         </div>
       </header>
@@ -346,78 +356,83 @@
       <div class="nav-scroller py-1 mb-3 border-bottom">
         <nav class="nav nav-underline justify-content-between">
           <a class="nav-item nav-link link-body-emphasis active" href="#"
-            >World</a
+            >Dev Log</a
           >
-          <a class="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Lore</a>
           <a class="nav-item nav-link link-body-emphasis" href="#"
-            >Technology</a
+            >Personajes</a
           >
-          <a class="nav-item nav-link link-body-emphasis" href="#">Design</a>
-          <a class="nav-item nav-link link-body-emphasis" href="#">History</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Diseño</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Gameplay</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">DeepStone</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Arte</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Sprites</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Mecánicas</a>
           <a class="nav-item nav-link link-body-emphasis" href="#"
-            >Development</a
+            >Hoja de ruta</a
           >
-          <a class="nav-item nav-link link-body-emphasis" href="#">Politics</a>
-          <a class="nav-item nav-link link-body-emphasis" href="#">Opinions</a>
-          <a class="nav-item nav-link link-body-emphasis" href="#">Science</a>
-          <a class="nav-item nav-link link-body-emphasis" href="#">Health</a>
-          <a class="nav-item nav-link link-body-emphasis" href="#">Style</a>
-          <a class="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Acerca de</a>
+          <a class="nav-item nav-link link-body-emphasis" href="#">Contacto</a>
         </nav>
       </div>
     </div>
 
     <main class="container">
+      <!-- Banner principal -->
       <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
         <div class="col-lg-6 px-0">
-          <h1 class="display-4 fst-italic">New Project in developement</h1>
+          <h1 class="display-4 fst-italic">
+            Pickaxe &amp; Beer ya está en desarrollo
+          </h1>
           <p class="lead my-3">
-            A new Indie Game about a drunk Gnome who spends his days drinking
-            beer.
+            Un juego indie de gestión de minas sobre Johnker: un gnomo con un
+            serio problema con la bebida, cero titulaciones y una mina que nadie
+            le pidió que gestionara.
           </p>
           <p class="lead mb-0">
-            <a href="#" class="text-body-emphasis fw-bold">See more...</a>
+            <a href="#" class="text-body-emphasis fw-bold"
+              >Sigue el dev log →</a
+            >
           </p>
         </div>
       </div>
 
+      <!-- Dos tarjetas destacadas -->
       <div class="row mb-2">
         <div class="col-md-6">
           <div
             class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
           >
             <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary-emphasis"
-                >World</strong
-              >
-              <h3 class="mb-0">New Sprite sheed implemented</h3>
-              <div class="mb-1 text-body-secondary">Nov 12</div>
+              <strong class="d-inline-block mb-2 tag-devlog">Dev Log</strong>
+              <h3 class="mb-0">
+                Sprite sheet de Johnker — primera pasada terminada
+              </h3>
+              <div class="mb-1 text-body-secondary">14 de mayo, 2026</div>
               <p class="card-text mb-auto">
-                Added new night-mode mechanic... improves the gameplay in a
-                great way.
+                Las animaciones idle de nuestro corpulento protagonista gnomo ya
+                están listas. Se balancea levemente — si es por el peso del
+                barril o la Weihenstephaner, se lo dejamos al jugador.
               </p>
               <a
                 href="#"
                 class="icon-link gap-1 icon-link-hover stretched-link"
               >
-                See more...
-                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                Leer más <i class="bi bi-chevron-right"></i>
               </a>
             </div>
             <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-              </svg>
+              <img
+                src="https://th.bing.com/th?q=Pico+Minecraft+Jpg&w=120&h=120&c=1&rs=1&qlt=70&r=0&o=7&cb=1&pid=InlineBlock&rm=3&mkt=es-ES&cc=ES&setlang=es&adlt=moderate&t=1&mw=247"
+                style="
+                  width: 96px;
+                  height: 96px;
+                  min-width: 96px;
+                  object-fit: cover;
+                "
+                class="rounded flex-auto"
+                alt="Descripción"
+              />
             </div>
           </div>
         </div>
@@ -427,37 +442,25 @@
             class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
           >
             <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-success-emphasis"
-                >Design</strong
-              >
-              <h3 class="mb-0">Post title</h3>
-              <div class="mb-1 text-body-secondary">Nov 11</div>
+              <strong class="d-inline-block mb-2 tag-gameplay">Gameplay</strong>
+              <h3 class="mb-0">
+                Ciclo día/noche confirmado como mecánica central
+              </h3>
+              <div class="mb-1 text-body-secondary">14 de mayo, 2026</div>
               <p class="mb-auto">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content.
+                De día gestionas la mina; de noche te adentras más allá de las
+                máquinas y la civilización. Exploración en primera persona
+                estilo DOOM retro es la dirección actual.
               </p>
               <a
                 href="#"
                 class="icon-link gap-1 icon-link-hover stretched-link"
               >
-                Continue reading
-                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                Leer más <i class="bi bi-chevron-right"></i>
               </a>
             </div>
             <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-              </svg>
+              <div class="thumbnail-mine h-100" style="width: 200px">🌑🪨</div>
             </div>
           </div>
         </div>
@@ -465,267 +468,395 @@
 
       <div class="row g-5">
         <div class="col-md-8">
-          <h3 class="pb-4 mb-4 fst-italic border-bottom">From the Firehose</h3>
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">
+            Desde las entrañas del desarrollo
+          </h3>
 
+          <!-- Post 1 -->
           <article class="blog-post">
-            <h2 class="display-5 link-body-emphasis mb-1">Sample blog post</h2>
+            <h2 class="display-5 link-body-emphasis mb-1">
+              PAB — ¿De qué va este juego, exactamente?
+            </h2>
             <p class="blog-post-meta">
-              January 1, 2021 by <a href="#">Mark</a>
+              14 de mayo, 2026 por <a href="#">el dev</a>
             </p>
             <p>
-              This blog post shows a few different types of content that's
-              supported and styled with Bootstrap. Basic typography, lists,
-              tables, images, code, and more are all supported as expected.
+              <strong>Pickaxe &amp; Beer</strong> (PAB) es un juego de gestión
+              de minas en 2D con vista cenital, ambientado en
+              <strong>DeepStone</strong>, un pequeño pueblo subterráneo
+              enclavado en las highlands escandinavas de la
+              <em>Sierra de Cebiada</em> — llamada así por los campos de cebada
+              que la cubrían antes de que siglos de minería lo convirtieran todo
+              en gris azulado y levemente maldito.
             </p>
             <hr />
             <p>
-              This is some additional paragraph placeholder content. It has been
-              written to fill the available space and show how a longer snippet
-              of text affects the surrounding content.
+              Controlas a <strong>Johnker</strong>: un gnomo fornido que no
+              terminó infantil, bebe Weihenstephaner de un barril personal que
+              carga a la espalda, y que de alguna manera ha acabado siendo el
+              único técnico responsable de toda una operación minera
+              automatizada. Las máquinas hacen la minería real por las noches.
+              Johnker solo tiene que mantenerlas vivas. No se le da bien.
             </p>
-            <h2>Blockquotes</h2>
-            <p>This is an example blockquote in action:</p>
+            <h2>El pitch en una frase</h2>
             <blockquote class="blockquote">
-              <p>Quoted text goes here.</p>
+              <p>
+                Un gnomo arruinado acepta el trabajo mejor pagado con menos
+                requisitos y descubre que el sueldo no cubre absolutamente nada.
+              </p>
             </blockquote>
             <p>
-              This is some additional paragraph placeholder content. It has been
-              written to fill the available space and show how a longer snippet
-              of text affects the surrounding content.
+              La mina es económicamente inviable por diseño. Los ingresos nunca
+              cubren los gastos de operación, lo que significa que Johnker va
+              vaciando poco a poco su reserva de cerveza — el sustituto del
+              juego para la moral y la energía. Cuando el barril se vacía, las
+              cosas se complican.
             </p>
-            <h3>Example lists</h3>
-            <ul>
-              <li>First list item</li>
-              <li>Second list item with a longer description</li>
-              <li>Third list item to close it out</li>
-            </ul>
-            <p>And this is an ordered list:</p>
-            <ol>
-              <li>First list item</li>
-              <li>Second list item with a longer description</li>
-              <li>Third list item to close it out</li>
-            </ol>
-            <p>And this is a definition list:</p>
-            <dl>
-              <dt>HyperText Markup Language (HTML)</dt>
-              <dd>
-                The language used to describe and define the content of a Web
-                page
-              </dd>
-              <dt>Cascading Style Sheets (CSS)</dt>
-              <dd>Used to describe the appearance of Web content</dd>
-              <dt>JavaScript (JS)</dt>
-              <dd>
-                The programming language used to build advanced Web sites and
-                applications
-              </dd>
-            </dl>
-            <h2>Inline HTML elements</h2>
+            <h3>Bucle principal (dirección actual)</h3>
             <p>
-              HTML defines a long list of available inline tags, a complete list
-              of which can be found on the
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element"
-                >Mozilla Developer Network</a
-              >.
+              Durante el día: gestionar las máquinas, reparar lo que Chin't ha
+              roto, estirar cada recurso. Por la noche: adentrarse más allá de
+              la maquinaria en el sistema de cuevas natural, por razones que
+              tendrán sentido más adelante (o puede que nunca, según el nivel de
+              sobriedad de Johnker).
             </p>
-            <ul>
-              <li>
-                <strong>To bold text</strong>, use <code>&lt;strong&gt;</code>.
-              </li>
-              <li><em>To italicize text</em>, use <code>&lt;em&gt;</code>.</li>
-              <li>
-                Abbreviations, like
-                <abbr title="HyperText Markup Language">HTML</abbr> should use
-                <code>&lt;abbr&gt;</code>.
-              </li>
-              <li>
-                Citations, like <cite>— Mark Otto</cite>, should use
-                <code>&lt;cite&gt;</code>.
-              </li>
-              <li>
-                <del>Deleted</del> text should use <code>&lt;del&gt;</code> and
-                <ins>inserted</ins> text should use <code>&lt;ins&gt;</code>.
-              </li>
-              <li>
-                Superscript <sup>text</sup> uses <code>&lt;sup&gt;</code> and
-                subscript <sub>text</sub> uses <code>&lt;sub&gt;</code>.
-              </li>
-            </ul>
-            <h2>Heading</h2>
-            <p>This is some additional paragraph placeholder content.</p>
-            <h3>Sub-heading</h3>
-            <p>This is some additional paragraph placeholder content.</p>
-            <pre><code>Example code block</code></pre>
             <p>
-              This is some additional paragraph placeholder content, slightly
-              shorter.
+              Todo esto está sujeto a cambios. El documento de diseño lo dice
+              explícitamente, y eso se agradece.
             </p>
           </article>
 
+          <!-- Post 2 -->
           <article class="blog-post">
-            <h2 class="display-5 link-body-emphasis mb-1">Another blog post</h2>
+            <h2 class="display-5 link-body-emphasis mb-1">
+              El reparto: Johnker y Chin't
+            </h2>
             <p class="blog-post-meta">
-              December 23, 2020 by <a href="#">Jacob</a>
+              13 de mayo, 2026 por <a href="#">el dev</a>
             </p>
-            <p>This is some additional paragraph placeholder content.</p>
-            <blockquote>
-              <p>
-                Longer quote goes here, maybe with some
-                <strong>emphasized text</strong> in the middle of it.
-              </p>
-            </blockquote>
-            <p>This is some additional paragraph placeholder content.</p>
-            <h3>Example table</h3>
-            <p>And don't forget about tables in these posts:</p>
+            <p>Actualmente hay dos personas en DeepStone. Aquí están.</p>
+            <h3>Johnker</h3>
+            <p>
+              Gnomo. Fornido. Funcionalmente analfabeto en todo lo relacionado
+              con la minería. Su principal requisito para este trabajo fue
+              presentarse. Carga un barril personal de
+              <strong>Weihenstephaner</strong> — una cerveza de trigo alemana
+              elaborada desde la Edad Media, lo cual encaja perfectamente con la
+              esencia de Johnker: un hombre levemente desplazado en el tiempo y
+              significativamente fuera de su profundidad. Su cerebro, según el
+              documento de diseño, es del tamaño de una pasa. Esto se trata como
+              una observación neutra, no una crítica.
+            </p>
+            <h3>Chin't Chintensen</h3>
+            <p>
+              El compañero de máquinas de Johnker. Llamado así por su barbilla
+              ausente — literalmente: <em>Chin't</em> — y con el apellido
+              escandinavo Chintensen, una corrupción de "Christensen." Chin't no
+              es malicioso. Genuinamente quiere ayudar. Simplemente es, de forma
+              catastrófica y constitutiva, malo en todo. Se va antes de tiempo.
+              Asigna sus propias tareas a Johnker. Hace los trabajos mal adrede
+              sin darse cuenta de que lo hace adrede. Es el antagonista por
+              accidente.
+            </p>
+            <h3>Personajes secundarios (planificados)</h3>
+            <p>
+              Conforme la mina se expande, irán llegando nuevos personajes a
+              DeepStone — de forma no lineal y aleatoria. Cada uno tendrá
+              profundidad real: motivaciones verdaderas, historias que
+              evolucionan, y una razón para estar en un pueblo subterráneo en
+              decadencia que dejó de importar hace décadas. Su llegada
+              desbloquea nuevas ubicaciones y servicios. Nada de esto está
+              ligado al progreso económico — la mina nunca será rentable. Ese es
+              el chiste, y también el punto.
+            </p>
+            <h3>Resumen del reparto</h3>
             <table class="table">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Upvotes</th>
-                  <th>Downvotes</th>
+                  <th>Nombre</th>
+                  <th>Rol</th>
+                  <th>Rasgo clave</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Alice</td>
-                  <td>10</td>
-                  <td>11</td>
+                  <td>Johnker</td>
+                  <td>Protagonista / técnico de la mina</td>
+                  <td>Borracho, fuerte, sin titulaciones</td>
                 </tr>
                 <tr>
-                  <td>Bob</td>
-                  <td>4</td>
-                  <td>3</td>
+                  <td>Chin't Chintensen</td>
+                  <td>Compañero / antagonista cómico</td>
+                  <td>Incompetente sin malicia</td>
                 </tr>
                 <tr>
-                  <td>Charlie</td>
-                  <td>7</td>
-                  <td>9</td>
+                  <td>TBD (secundarios)</td>
+                  <td>Llegadas al pueblo</td>
+                  <td>Lore profundo, aparición aleatoria</td>
                 </tr>
               </tbody>
-              <tfoot>
-                <tr>
-                  <td>Totals</td>
-                  <td>21</td>
-                  <td>23</td>
-                </tr>
-              </tfoot>
             </table>
-            <p>
-              This is some additional paragraph placeholder content, slightly
-              shorter.
-            </p>
           </article>
 
+          <!-- Post 3 -->
           <article class="blog-post">
-            <h2 class="display-5 link-body-emphasis mb-1">New feature</h2>
+            <h2 class="display-5 link-body-emphasis mb-1">
+              El mundo: DeepStone, la Piebrita y la cebada maldita
+            </h2>
             <p class="blog-post-meta">
-              December 14, 2020 by <a href="#">Chris</a>
+              12 de mayo, 2026 por <a href="#">el dev</a>
             </p>
-            <p>This is some additional paragraph placeholder content.</p>
-            <ul>
-              <li>First list item</li>
-              <li>Second list item with a longer description</li>
-              <li>Third list item to close it out</li>
-            </ul>
             <p>
-              This is some additional paragraph placeholder content, slightly
-              shorter.
+              El escenario de PAB hace más trabajo del que parece. Aquí va un
+              desglose de lo que sabemos del mundo hasta ahora.
+            </p>
+            <h3>DeepStone</h3>
+            <p>
+              Un pequeño pueblo subterráneo que solía ser el principal centro
+              minero de la región nórdica. Ya no lo es. La población al inicio
+              del juego es exactamente dos personas. El pueblo mantiene esa
+              denominación por obligación histórica. Visualmente: morados
+              apagados, grises azulados, el ocasional brillo de los depósitos de
+              Piebrita.
+            </p>
+            <h3>Sierra de Cebiada</h3>
+            <p>
+              La cordillera sobre DeepStone, bautizada por la cebada que antaño
+              la cubría. La contaminación minera mató los campos. El paisaje
+              ahora es de un azul-morado apagado, lúgubre, y alberga fenómenos
+              inexplicados que nadie ha catalogado del todo.
+            </p>
+            <h3>Materiales principales</h3>
+            <ul>
+              <li>
+                <strong>Piebrita</strong> (piedra que brilla) — el recurso
+                económico principal. Un mineral que adquiere una dureza
+                extraordinaria tras su pulido; muy cotizado para armamento
+                militar. La razón de existir de la mina.
+              </li>
+              <li>
+                <strong>Raíces Rocáceas</strong> — raíces de color gris rosáceo
+                que crecen alrededor de los depósitos de Piebrita. Se usan para
+                elaborar la versión local de Weihenstephaner desde que se acabó
+                la cebada. Imprescindibles para el funcionamiento continuado de
+                Johnker.
+              </li>
+              <li>
+                <strong>Rocas Arcuitas</strong> (arcoíris) — descubiertas
+                décadas después de abrir la mina. Emiten una luz cambiante de
+                tonos similares al arcoíris. Su origen y propósito son
+                desconocidos. Probablemente bien.
+              </li>
+            </ul>
+            <h3>El problema económico</h3>
+            <p>
+              La mina nunca llegará a cubrir gastos. Esto no es un fallo de
+              diseño. La presión financiera empuja a Johnker a quemar sus
+              reservas de cerveza, y la cerveza es efectivamente el sistema de
+              energía/moral. Gestionar bien la mina retrasa lo inevitable;
+              gestionarla mal lo acelera. La tensión del juego vive íntegramente
+              en ese hueco.
             </p>
           </article>
 
-          <nav class="blog-pagination" aria-label="Pagination">
-            <a class="btn btn-outline-primary rounded-pill" href="#">Older</a>
+          <!-- Post 4 -->
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1">
+              Análisis de mecánicas: la sobriedad, el ciclo nocturno y lo que
+              Chin't romperá después
+            </h2>
+            <p class="blog-post-meta">
+              11 de mayo, 2026 por <a href="#">el dev</a>
+            </p>
+            <p>
+              Algunos de los sistemas planificados, en diferentes estados de
+              concreción.
+            </p>
+            <h3>La Barra de Sobriedad</h3>
+            <p>
+              La sobriedad de Johnker (o su ausencia) funciona como medidor de
+              energía y rendimiento. Cuanto menos bebe, su capacidad para
+              gestionar la mina mejora ligeramente, pero su disposición a seguir
+              cae en picado. El juego óptimo mantiene a Johnker exactamente tan
+              borracho como para funcionar.
+            </p>
+            <div class="my-3">
+              <small class="text-body-secondary d-block mb-1"
+                >Nivel de sobriedad actual de Johnker:</small
+              >
+              <div class="sobriety-bar">
+                <div class="sobriety-fill"></div>
+              </div>
+              <small class="text-body-secondary">25% sobrio · operativo</small>
+            </div>
+            <h3>División día / noche</h3>
+            <p>
+              El bucle diurno es gestión de la mina: máquinas, recursos, los
+              desastres de Chin't, decisiones económicas. Al caer la noche, el
+              juego cambia a exploración 3D en primera persona del sistema de
+              cuevas más profundo — actualmente planteado como retro DOOM,
+              aunque puede cambiar a cualquier cosa desde un bullet hell hasta
+              una cuenta atrás de supervivencia. La sección nocturna es segunda
+              prioridad una vez el bucle diurno sea sólido.
+            </p>
+            <h3>Tareas automatizables vs. manuales</h3>
+            <p>
+              Algunas operaciones pueden automatizarse con el tiempo, pero la
+              intención es que siempre haya algo que Johnker deba hacer él mismo
+              — lo cual es en parte narrativo y en parte mecánico.
+            </p>
+            <h3>Cosas que pueden y van a salir mal</h3>
+            <ul>
+              <li>
+                Chin't yéndose antes de hora y atribuyéndoselo a la negligencia
+                de Johnker
+              </li>
+              <li>
+                Máquinas que necesitan mantenimiento que Chin't debía haber
+                hecho
+              </li>
+              <li>
+                Reservas de cerveza bajas porque la mina no ha dado beneficios
+                (nunca los da)
+              </li>
+              <li>
+                Turnos nocturnos que revelan algo en las profundidades de la
+                montaña que todavía no tiene nombre
+              </li>
+            </ul>
+          </article>
+
+          <nav class="blog-pagination" aria-label="Paginación">
+            <a class="btn btn-outline-primary rounded-pill" href="#"
+              >Entradas anteriores</a
+            >
             <a
               class="btn btn-outline-secondary rounded-pill disabled"
               aria-disabled="true"
-              >Newer</a
+              >Más recientes</a
             >
           </nav>
         </div>
 
+        <!-- Sidebar -->
         <div class="col-md-4">
           <div class="position-sticky" style="top: 2rem">
             <div class="p-4 mb-3 bg-body-tertiary rounded">
-              <h4 class="fst-italic">About</h4>
+              <h4 class="fst-italic">Sobre PAB</h4>
               <p class="mb-0">
-                Customize this section to tell your visitors a little bit about
-                your publication, writers, content, or something else entirely.
-                Totally up to you.
+                <span class="deepstone-badge">Despacho desde DeepStone</span
+                ><br /><br />
+                Pickaxe &amp; Beer es un juego indie en desarrollo temprano. Un
+                desarrollador. Dos personajes. Una mina económicamente inviable.
+                Sigue a Johnker mientras mantiene las luces encendidas de alguna
+                manera.
               </p>
             </div>
 
+            <div class="p-4 mb-3 bg-body-tertiary rounded">
+              <h4 class="fst-italic">Ficha del juego</h4>
+              <table class="table table-sm mb-0">
+                <tbody>
+                  <tr>
+                    <td><strong>Motor</strong></td>
+                    <td>Por determinar</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Género</strong></td>
+                    <td>Gestión de minas / Roguelike</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Vista</strong></td>
+                    <td>2D cenital (día) / 3D retro (noche)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Personajes</strong></td>
+                    <td>Johnker, Chin't + reparto TBD</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Escenario</strong></td>
+                    <td>DeepStone, Sierra de Cebiada</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Estado</strong></td>
+                    <td>🟡 Concepto / desarrollo temprano</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
             <div>
-              <h4 class="fst-italic">Recent posts</h4>
+              <h4 class="fst-italic">Entradas recientes</h4>
               <ul class="list-unstyled">
                 <li>
                   <a
                     class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
                     href="#"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="bd-placeholder-img"
-                      height="96"
-                      preserveAspectRatio="xMidYMid slice"
-                      width="100%"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect width="100%" height="100%" fill="#777"></rect>
-                    </svg>
-                    <div class="col-lg-8">
-                      <h6 class="mb-0">Example blog post title</h6>
-                      <small class="text-body-secondary"
-                        >January 15, 2024</small
-                      >
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                    href="#"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="bd-placeholder-img"
-                      height="96"
-                      preserveAspectRatio="xMidYMid slice"
-                      width="100%"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect width="100%" height="100%" fill="#777"></rect>
-                    </svg>
-                    <div class="col-lg-8">
-                      <h6 class="mb-0">This is another blog post title</h6>
-                      <small class="text-body-secondary"
-                        >January 14, 2024</small
-                      >
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
-                    href="#"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="bd-placeholder-img"
-                      height="96"
-                      preserveAspectRatio="xMidYMid slice"
-                      width="100%"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect width="100%" height="100%" fill="#777"></rect>
-                    </svg>
+                    <img
+                      src="https://th.bing.com/th?q=Pico+Minecraft+Jpg&w=120&h=120&c=1&rs=1&qlt=70&r=0&o=7&cb=1&pid=InlineBlock&rm=3&mkt=es-ES&cc=ES&setlang=es&adlt=moderate&t=1&mw=247"
+                      style="
+                        width: 96px;
+                        height: 96px;
+                        min-width: 96px;
+                        object-fit: cover;
+                      "
+                      class="rounded flex-auto"
+                      alt="Descripción"
+                    />
                     <div class="col-lg-8">
                       <h6 class="mb-0">
-                        Longer blog post title: This one has multiple lines!
+                        Sprite sheet de Johnker — primera pasada
                       </h6>
-                      <small class="text-body-secondary"
-                        >January 13, 2024</small
-                      >
+                      <small class="text-body-secondary">14 may. 2026</small>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                    href="#"
+                  >
+                    <img
+                      src="https://th.bing.com/th/id/OIP.-rZL_OyGIcF3jhf1d2wleAHaFj?w=222&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+                      style="
+                        width: 96px;
+                        height: 96px;
+                        min-width: 96px;
+                        object-fit: cover;
+                      "
+                      class="rounded flex-auto"
+                      alt="Descripción"
+                    />
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">
+                        Ciclo día/noche confirmado como mecánica central
+                      </h6>
+                      <small class="text-body-secondary">14 may. 2026</small>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                    href="#"
+                  >
+                    <img
+                      src="https://th.bing.com/th/id/OIP.VrUfzVCZuQVtYIHvWtLoNAHaFj?w=230&h=180&c=7&r=0&o=7&pid=1.7&rm=3"
+                      style="
+                        width: 96px;
+                        height: 96px;
+                        min-width: 96px;
+                        object-fit: cover;
+                      "
+                      class="rounded flex-auto"
+                      alt="Descripción"
+                    />
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">
+                        Lore: Piebrita, Rocas Arcuitas y la cebada maldita
+                      </h6>
+                      <small class="text-body-secondary">12 may. 2026</small>
                     </div>
                   </a>
                 </li>
@@ -733,29 +864,19 @@
             </div>
 
             <div class="p-4">
-              <h4 class="fst-italic">Archives</h4>
+              <h4 class="fst-italic">Archivo del dev log</h4>
               <ol class="list-unstyled mb-0">
-                <li><a href="#">March 2021</a></li>
-                <li><a href="#">February 2021</a></li>
-                <li><a href="#">January 2021</a></li>
-                <li><a href="#">December 2020</a></li>
-                <li><a href="#">November 2020</a></li>
-                <li><a href="#">October 2020</a></li>
-                <li><a href="#">September 2020</a></li>
-                <li><a href="#">August 2020</a></li>
-                <li><a href="#">July 2020</a></li>
-                <li><a href="#">June 2020</a></li>
-                <li><a href="#">May 2020</a></li>
-                <li><a href="#">April 2020</a></li>
+                <li><a href="#">Mayo 2026 — Fase de concepto</a></li>
+                <li><a href="#">Abril 2026 — Pre-producción</a></li>
               </ol>
             </div>
 
             <div class="p-4">
-              <h4 class="fst-italic">Elsewhere</h4>
+              <h4 class="fst-italic">Síguenos</h4>
               <ol class="list-unstyled">
                 <li><a href="#">GitHub</a></li>
-                <li><a href="#">Social</a></li>
-                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Itch.io (próximamente)</a></li>
+                <li><a href="#">Redes sociales</a></li>
               </ol>
             </div>
           </div>
@@ -765,86 +886,76 @@
 
     <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
       <p>
-        Blog template built for
-        <a href="https://getbootstrap.com/">Bootstrap</a> by
-        <a href="https://x.com/mdo">@mdo</a>.
+        <strong>Pickaxe &amp; Beer</strong> · Blog de desarrollo indie ·
+        DeepStone, Sierra de Cebiada · Población: 2
       </p>
-      <p class="mb-0"><a href="#">Back to top</a></p>
+      <p class="mb-0"><a href="#">Volver arriba</a></p>
     </footer>
 
-    <!-- Bootstrap JS Bundle con Popper (CDN oficial) -->
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I"
       crossorigin="anonymous"
     ></script>
 
-    <!-- Script para el toggle de tema claro/oscuro -->
+    <!-- Toggle de tema — funcional -->
     <script>
       (() => {
-        const getStoredTheme = () => localStorage.getItem("theme");
-        const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
+        const KEY = "pab-theme";
+        const get = () => localStorage.getItem(KEY) || "auto";
+        const save = (t) => localStorage.setItem(KEY, t);
+        const sysDark = () =>
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const resolve = (t) =>
+          t === "auto" ? (sysDark() ? "dark" : "light") : t;
 
-        const getPreferredTheme = () => {
-          const stored = getStoredTheme();
-          if (stored) return stored;
-          return window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
+        const apply = (t) => {
+          document.documentElement.setAttribute("data-bs-theme", resolve(t));
         };
 
-        const applyTheme = (theme) => {
-          const resolved =
-            theme === "auto"
-              ? window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "dark"
-                : "light"
-              : theme;
-          document.documentElement.setAttribute("data-bs-theme", resolved);
-        };
-
-        const iconMap = {
+        const icons = {
           light: "bi-sun-fill",
           dark: "bi-moon-stars-fill",
           auto: "bi-circle-half",
         };
 
-        const updateToggleUI = (theme) => {
+        const syncUI = (t) => {
           const activeIcon = document.querySelector(".theme-icon-active");
-          if (activeIcon) {
-            activeIcon.className = `bi ${iconMap[theme]} theme-icon-active my-1`;
-          }
+          if (activeIcon)
+            activeIcon.className = `bi ${icons[t]} theme-icon-active my-1`;
+
           document.querySelectorAll("[data-bs-theme-value]").forEach((btn) => {
-            const isActive = btn.getAttribute("data-bs-theme-value") === theme;
+            const isActive = btn.getAttribute("data-bs-theme-value") === t;
             btn.classList.toggle("active", isActive);
-            btn.setAttribute("aria-pressed", isActive.toString());
+            btn.setAttribute("aria-pressed", String(isActive));
             const check = btn.querySelector(".bi-check2");
             if (check) check.classList.toggle("d-none", !isActive);
           });
         };
 
-        // Aplicar tema inicial antes de pintar
-        applyTheme(getPreferredTheme());
+        // Aplicar antes de pintar
+        apply(get());
 
-        window.addEventListener("DOMContentLoaded", () => {
-          updateToggleUI(getStoredTheme() || "auto");
+        document.addEventListener("DOMContentLoaded", () => {
+          syncUI(get());
 
           document.querySelectorAll("[data-bs-theme-value]").forEach((btn) => {
             btn.addEventListener("click", () => {
-              const theme = btn.getAttribute("data-bs-theme-value");
-              setStoredTheme(theme);
-              applyTheme(theme);
-              updateToggleUI(theme);
+              const t = btn.getAttribute("data-bs-theme-value");
+              save(t);
+              apply(t);
+              syncUI(t);
             });
           });
-        });
 
-        window
-          .matchMedia("(prefers-color-scheme: dark)")
-          .addEventListener("change", () => {
-            const stored = getStoredTheme();
-            if (!stored || stored === "auto") applyTheme("auto");
-          });
+          // Reaccionar a cambios del sistema en modo auto
+          window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", () => {
+              if (get() === "auto") apply("auto");
+            });
+        });
       })();
     </script>
   </body>
