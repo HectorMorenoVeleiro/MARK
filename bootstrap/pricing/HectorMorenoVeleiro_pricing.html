@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>Ejercicio pricing bootstrap</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/pricing/"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://getbootstrap.com/docs/5.3/examples/pricing/pricing.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+    background-image: linear-gradient(
+      180deg,
+      var(--bs-secondary-bg),
+      var(--bs-body-bg) 100px,
+      var(--bs-body-bg)
+    );
+    background-color: #fde8f0 !important;
+  }
+
+  .container {
+    max-width: 960px;
+  }
+
+  .pricing-header {
+    max-width: 700px;
+  }
+
+  .fs-4 {
+    font-family: 'Space Mono', monospace;
+    font-weight: 800;
+  }
+
+      [data-bs-theme="light"] .border-primary {
+        border-color: #3d0017 !important;
+      }
+
+      [data-bs-theme="dark"] .border-primary {
+        border-color: #fde8f0 !important;
+      }
+
+      [data-bs-theme="light"] .btn-primary {
+        background-color: #3d0017;
+        border-color: #3d0017;
+      }
+
+      [data-bs-theme="light"] .btn-primary:hover {
+        background-color: #5a0022;
+        border-color: #5a0022;
+      }
+
+      [data-bs-theme="dark"] .btn-primary {
+        background-color: #fde8f0;
+        border-color: #fde8f0;
+        color: #3d0017;
+      }
+
+      [data-bs-theme="dark"] .btn-primary:hover {
+        background-color: #c9a0b0;
+        border-color: #c9a0b0;
+        color: #3d0017;
+      }
+
+      [data-bs-theme="dark"] .text-bg-primary {
+        background-color: #fde8f0 !important;
+        color: #3d0017 !important;
+      }
+
+      [data-bs-theme="light"] .text-bg-primary {
+        background-color: #3d0017 !important;
+        color: #fde8f0 !important;
+      }
+
+      [data-bs-theme="dark"] .compare-plans {
+        color: #3d0017;
+      }
+
+      [data-bs-theme="light"] .btn-outline-primary {
+        border-color: #3d0017;
+        color: #3d0017;
+      }
+
+      [data-bs-theme="light"] .btn-outline-primary:hover {
+        background-color: #3d0017;
+        border-color: #3d0017;
+        color: #fff;
+      }
+
+      [data-bs-theme="dark"] .btn-outline-primary {
+        border-color: #fde8f0;
+        color: #fde8f0;
+      }
+
+      [data-bs-theme="dark"] .btn-outline-primary:hover {
+        background-color: #fde8f0;
+        border-color: #fde8f0;
+        color: #3d0017;
+      }
+      [data-bs-theme="light"] {
+        --bs-body-bg: #fde8f0;
+        --bs-secondary-bg: #f7cbdc;
+      }
+
+      [data-bs-theme="dark"] {
+        --bs-body-bg: #411e2b;
+        --bs-secondary-bg: #441024;
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check" viewBox="0 0 16 16">
+        <title>Check</title>
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+    </svg>
+    <div class="container py-3">
+      <header>
+        <div
+          class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom"
+        >
+          <a
+            href="/"
+            class="d-flex align-items-center link-body-emphasis text-decoration-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="32"
+              class="me-2"
+              viewBox="0 0 118 94"
+              role="img"
+            >
+              
+            </svg>
+            <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+            <img src="data:image/png;base64,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" alt="logo" width="60" height="60" class="me-2" />
+            <span class="fs-4">N I N T E N D O</span>
+          </a>
+          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a
+              class="me-3 py-2 link-body-emphasis text-decoration-none"
+              href="#"
+              >Features</a
+            >
+            <a
+              class="me-3 py-2 link-body-emphasis text-decoration-none"
+              href="#"
+              >Enterprise</a
+            >
+            <a
+              class="me-3 py-2 link-body-emphasis text-decoration-none"
+              href="#"
+              >Support</a
+            >
+            <a class="py-2 link-body-emphasis text-decoration-none" href="#"
+              >Pricing</a
+            >
+          </nav>
+        </div>
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+          <img src="https://i.blogs.es/4d8ec0/h2x1_kirby30thanniversary_image1600w/840_560.jpeg" alt="Kirby" style="width: 100%; height: 120px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1rem;" />
+          <h1 class="display-4 fw-normal text-body-emphasis">Kirby Portal</h1>
+          <p class="fs-5 text-body-secondary">
+            All Nintendo Kirby games available with a simple subscription
+          </p>
+        </div>
+      </header>
+      <main>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Free</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  $0<small class="text-body-secondary fw-light">/mo</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li> - Access to all GB, GBA, N64 & NDS Kirby Games</li>
+                  <li> - Allows you to play 1 game on the web without downloading.</li>
+                  <li> - 10GB cloud storage</li>
+                </ul>
+                <button
+                  type="button"
+                  class="w-100 btn btn-lg btn-outline-primary"
+                 data-bs-toggle="modal" data-bs-target="#modalAviso">
+                  Sign up for free
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Pro</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  $40<small class="text-body-secondary fw-light">/3mo</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li></li>
+                  <li> - Allows free access to all 3DS, 2DS, Wii and GameCube games.</li>
+                  <li> - Priority email support</li>
+                  <li> - Allows you to play up to 3 games on the web without downloading.</li>
+                  <li> - 50GB cloud storage</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#modalAviso">
+                  Get started
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3 text-bg-primary border-primary">
+                <h4 class="my-0 fw-normal">Exclusive</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  $150<small class="text-body-secondary fw-light">/ye</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li> - Allows free access to all Switch & Switch2 games.</li>
+                  <li> - Instant email support</li>
+                  <li> - Allows you to play up to 5 games on the web without downloading.</li>
+                  <li> - unlimited cloud storage</li>
+                  <li> - Free access to the entire future catalog.</li>
+                  <li> - Crossplay</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#modalAviso">
+                  Contact us
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="background-color: #dbafb8; border-radius: 1rem; padding: 1.5rem;">
+          <div class="compare-plans">
+            <h2 class="display-6 text-center mb-4">Compare Kirby plans</h2></div>
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th style="width: 34%"></th>
+                <th style="width: 22%">Free</th>
+                <th style="width: 22%">Pro</th>
+                <th style="width: 22%">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">GB, GBA, N64 & NDS</th>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">3DS, 2DS, Wii and GameCube games</th>
+                <td></td>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+              </tr>
+              
+            </tbody>
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Permissions</th>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">+ 5 simultaneous games</th>
+                <td></td>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Unlimited storage</th>
+                <td></td>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Extra support</th>
+                <td></td>
+                <td></td>
+                <td>
+                  <svg
+                    class="bi"
+                    width="24"
+                    height="24"
+                    role="img"
+                    aria-label="Included"
+                  >
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </main>
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <img src="https://www.nintendo.com/eu/media/images/10_share_images/portals_3/2x1_KirbyHub_image1600w.jpg" alt="Kirby" style="width: 100%; height: 300px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1rem;" />
+        <div class="row">
+          <div class="col-12 col-md">
+            <img
+              class="mb-2"
+              src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
+              alt=""
+              width="24"
+              height="19"
+            />
+            <small class="d-block mb-3 text-body-secondary"
+              >&copy; 2017–2025</small
+            >
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Cool stuff</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Random feature</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Team feature</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Stuff for developers</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Another one</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Last time</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Resource</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Resource name</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Another resource</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Final resource</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html">Team</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Locations</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Privacy</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="https://www.nintendo.com/es-es/Juegos/Portal-de-Nintendo/Portal-para-Kirby/Portal-para-Kirby-627603.html"
+                  >Terms</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      document
+        .querySelectorAll("[data-bs-theme-value]")
+        .forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var theme = btn.getAttribute("data-bs-theme-value");
+            var resolved =
+              theme === "auto"
+                ? window.matchMedia("(prefers-color-scheme: dark)").matches
+                  ? "dark"
+                  : "light"
+                : theme;
+            document.documentElement.setAttribute("data-bs-theme", resolved);
+            document
+              .querySelectorAll("[data-bs-theme-value]")
+              .forEach(function (b) {
+                b.classList.remove("active");
+              });
+            btn.classList.add("active");
+          });
+        });
+    </script>
+    <div class="modal fade" id="modalAviso" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center p-4">
+        <p class="fs-5">Don't worry, put your credit card, this is gonna be used for bad purposes.</p>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </body>
+</html>
