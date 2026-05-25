@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="es" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mirkwood · El Bosque Negro</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <script>
+      (() => {
+        "use strict";
+        const getStoredTheme = () => localStorage.getItem("theme");
+        const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
+        const getPreferredTheme = () => {
+          const storedTheme = getStoredTheme();
+          if (storedTheme) return storedTheme;
+          return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        };
+        const setTheme = (theme) => {
+          if (theme === "auto") {
+            document.documentElement.setAttribute(
+              "data-bs-theme",
+              window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light",
+            );
+          } else {
+            document.documentElement.setAttribute("data-bs-theme", theme);
+          }
+        };
+        setTheme(getPreferredTheme());
+        const showActiveTheme = (theme, focus = false) => {
+          const themeSwitcher = document.querySelector("#bd-theme");
+          if (!themeSwitcher) return;
+          const activeThemeIcon = document.querySelector(
+            ".theme-icon-active use",
+          );
+          const btnToActive = document.querySelector(
+            `[data-bs-theme-value="${theme}"]`,
+          );
+          if (!btnToActive) return;
+          const svgOfActiveBtn = btnToActive
+            .querySelector("svg use")
+            .getAttribute("href");
+          document.querySelectorAll("[data-bs-theme-value]").forEach((el) => {
+            el.classList.remove("active");
+            el.setAttribute("aria-pressed", "false");
+          });
+          btnToActive.classList.add("active");
+          btnToActive.setAttribute("aria-pressed", "true");
+          if (activeThemeIcon)
+            activeThemeIcon.setAttribute("href", svgOfActiveBtn);
+          if (focus) themeSwitcher.focus();
+        };
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", () => {
+            const storedTheme = getStoredTheme();
+            if (storedTheme !== "light" && storedTheme !== "dark")
+              setTheme(getPreferredTheme());
+          });
+        window.addEventListener("DOMContentLoaded", () => {
+          showActiveTheme(getPreferredTheme());
+          document
+            .querySelectorAll("[data-bs-theme-value]")
+            .forEach((toggle) => {
+              toggle.addEventListener("click", () => {
+                const theme = toggle.getAttribute("data-bs-theme-value");
+                setStoredTheme(theme);
+                setTheme(theme);
+                showActiveTheme(theme, true);
+              });
+            });
+        });
+      })();
+    </script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap");
+
+      :root {
+        --bg-base: #06110e;
+        --bg-raised: #0b1a19;
+        --bg-deep: #030a08;
+        --bg-border: #142e27;
+        --cyan-dim: #8edbd3;
+        --cyan-muted: #5ca39b;
+        --cyan-faint: #346b64;
+        --text-body: #c1dfdc;
+        --text-secondary: #86aba6;
+        --text-heading: #a3e6de;
+        --gold-accent: #d4af37;
+      }
+
+      /* Adaptación automática para el Modo Claro nativo de Bootstrap */
+      [data-bs-theme="light"] {
+        --bg-base: #507065;
+        --bg-raised: #bdb5b5;
+        --bg-deep: #a5b995;
+        --bg-border: #a8c2bd;
+        --cyan-dim: #1e5e56;
+        --cyan-muted: #2d7a71;
+        --cyan-faint: #44968c;
+        --text-body: #2b3d3a;
+        --text-secondary: #526e6a;
+        --text-heading: #13423d;
+        --gold-accent: #aa8400;
+      }
+
+      [data-bs-theme] {
+        --bs-body-bg: transparent;
+        --bs-body-color: var(--text-body);
+        --bs-secondary-color: var(--text-secondary);
+        --bs-tertiary-bg: var(--bg-raised);
+        --bs-border-color: var(--bg-border);
+        --bs-link-color: var(--cyan-dim);
+        --bs-link-hover-color: var(--cyan-muted);
+        --bs-emphasis-color: var(--text-heading);
+      }
+
+      /* EFECTO DE IMAGEN DE FONDO REALMENTE ESTÁTICA Y SIN REDIMENSIÓN */
+      /* EFECTO DE IMAGEN DE FONDO REALMENTE ESTÁTICA Y RESPONSIVA */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://external-preview.redd.it/the-lord-of-the-rings-art-1080p-wallpaper-collection-v0-Mpf6PLNvCZ9I0AzSMQAjPvdB86Rlk90gCQEBJuYZ6q4.jpg?width=1080&crop=smart&auto=webp&s=d204f2a4eb6fe91bd927b81f5910cc768e223476");
+
+        /* CAMBIOS CLAVE AQUÍ: */
+        background-size: cover; /* Cubre toda la pantalla sin deformar la imagen (mantiene la proporción) */
+        background-position: center; /* Centra la imagen para que al recortarse visualmente quede equilibrada */
+
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-blend-mode: multiply;
+        background-color: rgba(34, 75, 64, 0.85);
+        z-index: -1;
+      }
+
+      html,
+      body {
+        background-color: transparent;
+        color: var(--text-body);
+        font-family: "Crimson Pro", Georgia, serif;
+        font-size: 1.2rem;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: 0.01em;
+        min-height: 100vh;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--text-heading);
+        font-family: "Cinzel", serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      p {
+        line-height: 1.8;
+      }
+
+      .border-bottom,
+      .border-top,
+      .border {
+        border-color: var(--bg-border) !important;
+      }
+
+      .text-body-emphasis {
+        color: var(--text-heading) !important;
+      }
+      .text-body-secondary {
+        color: var(--text-secondary) !important;
+      }
+
+      /* Contenedor Principal (Hero) */
+      .bg-body-tertiary {
+        background: linear-gradient(
+          145deg,
+          var(--bg-raised),
+          var(--bg-base)
+        ) !important;
+        border: 1px solid var(--bg-border) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+      }
+
+      /* Tarjetas de Contenido */
+      .card-elfo,
+      .card-rival {
+        background-color: var(--bg-raised) !important;
+        border: 1px solid var(--bg-border) !important;
+        transition:
+          transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+          box-shadow 0.3s ease;
+      }
+      .card-elfo:hover,
+      .card-rival:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+        border-color: var(--cyan-muted) !important;
+      }
+
+      /* Ajuste específico para el bloque oscuro original */
+      .text-bg-dark {
+        background-color: var(--bg-deep) !important;
+        color: var(--text-body) !important;
+        border: 1px solid var(--bg-border) !important;
+      }
+      .text-bg-dark h2 {
+        color: var(--text-heading);
+      }
+
+      /* Botones de Estilo Épico */
+      .btn {
+        font-family: "Cinzel", serif;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+        padding: 0.6rem 1.5rem;
+        border-radius: 4px;
+        transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      .btn-outline-light {
+        --bs-btn-color: var(--cyan-dim);
+        --bs-btn-border-color: var(--cyan-faint);
+        --bs-btn-hover-bg: var(--cyan-dim);
+        --bs-btn-hover-color: var(--bg-deep);
+        --bs-btn-hover-border-color: var(--cyan-dim);
+      }
+      .btn-outline-secondary {
+        --bs-btn-color: var(--text-secondary);
+        --bs-btn-border-color: var(--bg-border);
+        --bs-btn-hover-bg: var(--bg-border);
+        --bs-btn-hover-color: var(--cyan-dim);
+        --bs-btn-hover-border-color: var(--cyan-muted);
+      }
+      .btn-bd-primary {
+        --bs-btn-color: var(--bg-deep);
+        --bs-btn-bg: var(--cyan-dim);
+        --bs-btn-border-color: var(--cyan-dim);
+        --bs-btn-hover-color: var(--bg-deep);
+        --bs-btn-hover-bg: var(--text-heading);
+        --bs-btn-hover-border-color: var(--text-heading);
+        box-shadow: 0 4px 14px rgba(142, 219, 211, 0.2);
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .dropdown-menu {
+        background-color: var(--bg-raised);
+        border-color: var(--bg-border);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      }
+      .dropdown-item {
+        color: var(--text-body);
+        font-family: "Crimson Pro", serif;
+      }
+      .dropdown-item:hover,
+      .dropdown-item:focus,
+      .dropdown-item.active {
+        background-color: var(--bg-border);
+        color: var(--cyan-dim);
+      }
+
+      hr {
+        opacity: 0.2;
+        color: var(--cyan-dim);
+      }
+
+      /* Imágenes Optimizadas con sutiles gradientes/sombras */
+      .img-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .img-cover-hero {
+        object-fit: cover;
+        aspect-ratio: 16 / 10;
+        transition: transform 0.5s ease;
+      }
+      .img-container:hover .img-cover-hero {
+        transform: scale(1.02);
+      }
+
+      .img-cover-portrait {
+        object-fit: cover;
+        aspect-ratio: 16 / 11;
+        width: 100%;
+        height: auto;
+      }
+
+      /* Decoración de borde elegante al estilo élfico */
+      .header-brand {
+        font-family: "Cinzel", serif;
+        letter-spacing: 0.15em;
+        color: var(--gold-accent) !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Estilos personalizados para las ventanas modales */
+      .modal-content {
+        background-color: var(--bg-raised);
+        border: 1px solid var(--bg-border);
+        color: var(--text-body);
+      }
+      .modal-header {
+        border-bottom: 1px solid var(--bg-border);
+      }
+      .modal-footer {
+        border-top: 1px solid var(--bg-border);
+      }
+    </style>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg
+          class="bi my-1 theme-icon-active"
+          width="16"
+          height="16"
+          aria-hidden="true"
+        >
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg
+              class="bi me-2 opacity-50"
+              width="16"
+              height="16"
+              aria-hidden="true"
+            >
+              <use href="#sun-fill"></use>
+            </svg>
+            Luz
+            <svg
+              class="bi ms-auto d-none"
+              width="16"
+              height="16"
+              aria-hidden="true"
+            >
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg
+              class="bi me-2 opacity-50"
+              width="16"
+              height="16"
+              aria-hidden="true"
+            >
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Oscuridad
+            <svg
+              class="bi ms-auto d-none"
+              width="16"
+              height="16"
+              aria-hidden="true"
+            >
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg
+              class="bi me-2 opacity-50"
+              width="16"
+              height="16"
+              aria-hidden="true"
+            >
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg
+              class="bi ms-auto d-none"
+              width="16"
+              height="16"
+              aria-hidden="true"
+            >
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <main>
+      <div class="container py-5">
+        <header class="pb-4 mb-5 border-bottom">
+          <a
+            href="https://lotr.fandom.com/wiki/Main_Page"
+            class="d-flex align-items-center text-decoration-none mb-4"
+          >
+            <span class="fs-2 fw-bold header-brand"
+              >Crónicas de la Tierra Media</span
+            >
+          </a>
+          <div class="img-container">
+            <img
+              src="https://wallpapers.com/images/hd/lord-of-the-rings-landscape-purple-sky-mts28nnkf4c7m6x0.jpg"
+              class="w-100 shadow-lg"
+              style="
+                object-fit: cover;
+                object-position: center 75%;
+                height: 220px;
+              "
+              alt="Cabecera panorámica de la Tierra Media"
+            />
+          </div>
+        </header>
+
+        <div class="p-4 p-md-5 mb-5 bg-body-tertiary rounded-3">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <h1 class="mb-3">
+                Mirkwood
+                <span
+                  class="d-block fs-4 text-muted fw-normal mt-1"
+                  style="
+                    font-family: &quot;Crimson Pro&quot;, serif;
+                    text-transform: none;
+                    letter-spacing: 0;
+                  "
+                  >el Bosque Negro</span
+                >
+              </h1>
+              <p class="fs-5 text-secondary-emphasis">
+                El Bosque Negro es el lugar más opresivo de la Tierra Media. La
+                luz apenas llega de entre las ramas, todo mantiene un tono azul
+                verdoso y reina la niebla constante junto a las gigantescas
+                arañas por todas partes. En el norte se sitúa el reino de
+                <strong>Thranduil</strong>, el Rey Elfo, cuyo paraje se oculta
+                en el interior de la montaña.
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <div class="img-container">
+                <img
+                  src="https://static0.cbrimages.com/wordpress/wp-content/uploads/2024/03/mirkwood-bridge.jpg?q=49&fit=contain&w=713&h=401&dpr=2"
+                  class="w-100 img-cover-hero"
+                  alt="Puente adentrándose en Mirkwood"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row align-items-stretch g-4">
+          <div class="col-md-6">
+            <div
+              class="h-100 p-4 p-md-5 text-bg-dark rounded-3 d-flex flex-column justify-content-between shadow-sm card-elfo"
+            >
+              <div>
+                <h2 class="mb-3">Los Elfos Silvanos</h2>
+                <p class="text-secondary-emphasis mb-4">
+                  Son aquellos elfos que nunca quisieron ir a Valinor y se
+                  quedaron en los bosques del este. Eso mismo los hace más
+                  salvajes y menos refinados que los Noldor: se mueven sin hacer
+                  ruido, ven en la oscuridad y llevan viviendo en Mirkwood tanto
+                  tiempo que son casi parte del bosque. Thranduil los gobierna
+                  con mano dura y poca diplomacia.
+                </p>
+                <div class="img-container mb-4">
+                  <img
+                    src="https://wallpapercat.com/w/full/2/2/2/573566-1234x1920-mobile-hd-thranduil-background-photo.jpg"
+                    class="w-100 img-cover-portrait"
+                    alt="Rey Thranduil de los Elfos"
+                    style="object-position: center 20%"
+                  />
+                </div>
+              </div>
+              <div>
+                <hr class="mb-4" />
+                <button
+                  class="btn btn-outline-light w-100"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalHistoria"
+                >
+                  Conocer su historia
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div
+              class="h-100 p-4 p-md-5 bg-body-tertiary rounded-3 d-flex flex-column justify-content-between shadow-sm card-rival"
+            >
+              <div>
+                <h2 class="mb-3">¿Se llevan bien con alguien?</h2>
+                <p class="text-secondary-emphasis mb-4">
+                  No realmente. Con los Enanos tienen una rivalidad histórica
+                  por dinero y orgullo. A los Hombres los ven como seres
+                  inferiores y pesados. Con otros elfos como los Noldor tienen
+                  una relación tensa: reconociéndose como familia, Thranduil no
+                  acepta que nadie le diga lo que tiene que hacer. Cooperan
+                  únicamente cuando les conviene.
+                </p>
+                <div class="img-container mb-4">
+                  <img
+                    src="https://preview.redd.it/in-the-hobbit-desolation-of-smaug-2013-thorin-oakenshield-v0-nkughz7y63k41.jpg?width=640&crop=smart&auto=webp&s=54ffdd5fc2e5ddeb29855d79b19e80ec4375588a"
+                    class="w-100 img-cover-portrait"
+                    alt="Thorin Escudo de Roble"
+                    style="object-position: center 30%"
+                  />
+                </div>
+              </div>
+              <div>
+                <hr class="mb-4" />
+                <button
+                  class="btn btn-outline-secondary w-100"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalAlianzas"
+                >
+                  Las alianzas del rey
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="pt-4 mt-5 text-body-secondary border-top text-center">
+          &copy;
+          <a
+            href="https://lotr.fandom.com/wiki/Main_Page"
+            class="text-decoration-none text-body-secondary"
+            >Crónicas de la Tierra Media</a
+          >
+          &mdash; Basado en la mitología y obra de J.R.R. Tolkien.
+        </footer>
+      </div>
+    </main>
+
+    <div
+      class="modal fade"
+      id="modalHistoria"
+      tabindex="-1"
+      aria-labelledby="modalHistoriaLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title fs-5" id="modalHistoriaLabel">
+              Historia Silvana
+            </h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body fs-6">
+            Los Elfos Silvanos descienden de los Teleri que abandonaron la Gran
+            Marcha hacia Valinor.<br />
+            Durante las primeras edades habitaron los frondosos bosques
+            orientales del río Anduin en paz.<br />
+            Tras la Guerra de la Última Alianza, Thranduil asumió el trono tras
+            la muerte de su padre.<br />
+            El avance de la sombra de Sauron en Dol Guldur transformó su hogar
+            verde en el Bosque Negro.<br />
+            A pesar de los peligros, resistieron defendiendo sus fronteras con
+            gran ferocidad y valentía.
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-secondary py-1 px-3"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modalAlianzas"
+      tabindex="-1"
+      aria-labelledby="modalAlianzasLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title fs-5" id="modalAlianzasLabel">
+              Las Alianzas de Thranduil
+            </h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body fs-6">
+            El aislamiento fue la política principal del Rey Thranduil durante
+            gran parte de su mandato.<br />
+            Pese a las viejas rencillas comerciales, mantuvo un trato distante y
+            cauteloso con Esgaroth.<br />
+            La inminente amenaza global le obligó a combatir junto a Hombres y
+            Enanos en la Montaña Solitaria.<br />
+            Esta inesperada unión en la Batalla de los Cinco Ejércitos forjó una
+            era de respeto mutuo.<br />
+            Finalmente, en la Guerra del Anillo, colaboró activamente enviando a
+            su propio hijo, Legolas.
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-secondary py-1 px-3"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
