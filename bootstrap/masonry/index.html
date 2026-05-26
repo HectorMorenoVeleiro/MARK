@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Guía de los mejores items de Risk of Rain 2 — tier list completa con descripción, stats y sinergias."
+    />
+    <meta name="author" content="Risk of Rain 2 Item Guide" />
+    <title>Risk of Rain 2 — Mejores Items</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Barlow+Condensed:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta name="theme-color" content="#0a0a0f" />
+
+    <style>
+      :root {
+        --ror2-bg: #0a0a0f;
+        --ror2-surface: #12121a;
+        --ror2-surface2: #1a1a26;
+        --ror2-border: rgba(255, 255, 255, 0.07);
+        --ror2-text: #e8e8f0;
+        --ror2-muted: #7878a0;
+
+        --tier-legendary: #c8952a;
+        --tier-legendary-bg: rgba(200, 149, 42, 0.12);
+        --tier-legendary-border: rgba(200, 149, 42, 0.35);
+
+        --tier-boss: #c84040;
+        --tier-boss-bg: rgba(200, 64, 64, 0.12);
+        --tier-boss-border: rgba(200, 64, 64, 0.35);
+
+        --tier-uncommon: #4aaa4a;
+        --tier-uncommon-bg: rgba(74, 170, 74, 0.12);
+        --tier-uncommon-border: rgba(74, 170, 74, 0.35);
+
+        --tier-common: #c8c8c8;
+        --tier-common-bg: rgba(200, 200, 200, 0.08);
+        --tier-common-border: rgba(200, 200, 200, 0.25);
+
+        --tier-lunar: #4080d0;
+        --tier-lunar-bg: rgba(64, 128, 208, 0.12);
+        --tier-lunar-border: rgba(64, 128, 208, 0.35);
+      }
+
+      [data-bs-theme="light"] {
+        --ror2-bg: #f0eff8;
+        --ror2-surface: #ffffff;
+        --ror2-surface2: #f4f3fc;
+        --ror2-border: rgba(0, 0, 0, 0.08);
+        --ror2-text: #1a1a2e;
+        --ror2-muted: #6060a0;
+        --tier-legendary-bg: rgba(200, 149, 42, 0.08);
+        --tier-boss-bg: rgba(200, 64, 64, 0.08);
+        --tier-uncommon-bg: rgba(74, 170, 74, 0.08);
+        --tier-common-bg: rgba(100, 100, 100, 0.06);
+        --tier-lunar-bg: rgba(64, 128, 208, 0.08);
+      }
+
+      body {
+        background-color: var(--ror2-bg) !important;
+        color: var(--ror2-text) !important;
+        font-family: "Barlow", sans-serif;
+      }
+
+      /* ── Navbar ── */
+      .ror2-navbar {
+        background: var(--ror2-surface);
+        border-bottom: 1px solid var(--ror2-border);
+        padding: 0.75rem 0;
+      }
+      .ror2-navbar .brand {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--ror2-text);
+        letter-spacing: 0.04em;
+        text-decoration: none;
+      }
+      .ror2-navbar .brand span {
+        color: var(--tier-boss);
+      }
+      .nav-pill {
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 99px;
+        border: 1px solid var(--ror2-border);
+        color: var(--ror2-muted);
+        text-decoration: none;
+        transition:
+          color 0.15s,
+          border-color 0.15s;
+      }
+      .nav-pill:hover {
+        color: var(--ror2-text);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .ror2-hero {
+        position: relative;
+        padding: 80px 0; /* Un poco más de espacio arriba y abajo ayuda al centrado visual */
+        color: #ffffff;
+
+        /* 1. CENTRAR TODO EL TEXTO */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        /* El fondo con su sobreexposición */
+        background-image:
+          linear-gradient(rgba(27, 20, 10, 0.85), rgba(26, 18, 8, 0.9)),
+          url("https://www.pockettactics.com/wp-content/uploads/2022/06/risk-of-rain-characters-2.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        /* 2. SUBIR O BAJAR LA IMAGEN RESPECTO AL FONDO */
+        /* El primer valor es horizontal (center), el segundo es vertical */
+        background-position: center 40%;
+      }
+
+      /* Aseguramos que el contenedor interno también se alinee al centro */
+      .ror2-hero .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      .ror2-hero h1 {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+        color: var(--ror2-text);
+      }
+      .ror2-hero h1 em {
+        font-style: normal;
+        color: var(--tier-boss);
+      }
+      .ror2-hero .lead {
+        color: var(--ror2-muted);
+        font-size: 1rem;
+        max-width: 560px;
+        margin: 0 auto 1.5rem;
+        line-height: 1.7;
+      }
+
+      /* ── Tier legend ── */
+      .tier-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 1.25rem;
+      }
+      .tier-pip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 99px;
+        border: 1px solid;
+      }
+      .tier-pip-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+      .pip-legendary {
+        color: var(--tier-legendary);
+        border-color: var(--tier-legendary-border);
+        background: var(--tier-legendary-bg);
+      }
+      .pip-boss {
+        color: var(--tier-boss);
+        border-color: var(--tier-boss-border);
+        background: var(--tier-boss-bg);
+      }
+      .pip-uncommon {
+        color: var(--tier-uncommon);
+        border-color: var(--tier-uncommon-border);
+        background: var(--tier-uncommon-bg);
+      }
+      .pip-common {
+        color: var(--tier-common);
+        border-color: var(--tier-common-border);
+        background: var(--tier-common-bg);
+      }
+      .pip-lunar {
+        color: var(--tier-lunar);
+        border-color: var(--tier-lunar-border);
+        background: var(--tier-lunar-bg);
+      }
+
+      /* ── Section intro ── */
+      .section-intro {
+        padding: 2.5rem 0 0.25rem;
+        border-bottom: 1px solid var(--ror2-border);
+        margin-bottom: 2rem;
+      }
+      .section-intro p {
+        color: var(--ror2-muted);
+        max-width: 640px;
+        line-height: 1.7;
+      }
+      .section-intro code {
+        background: var(--ror2-surface2);
+        color: var(--tier-uncommon);
+        padding: 2px 7px;
+        border-radius: 4px;
+        font-size: 0.85em;
+        border: 1px solid var(--ror2-border);
+      }
+      pre {
+        background: var(--ror2-surface2) !important;
+        border: 1px solid var(--ror2-border);
+        border-radius: 8px;
+        padding: 1rem;
+        color: var(--ror2-muted);
+        font-size: 0.8rem;
+      }
+
+      /* ── Cards ── */
+      .card {
+        background: var(--ror2-surface) !important;
+        border: 1px solid var(--ror2-border) !important;
+        border-radius: 10px !important;
+        color: var(--ror2-text) !important;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+
+      /* tier accent stripe on top */
+      .card[data-tier="legendary"] {
+        border-top: 3px solid var(--tier-legendary) !important;
+      }
+      .card[data-tier="boss"] {
+        border-top: 3px solid var(--tier-boss) !important;
+      }
+      .card[data-tier="uncommon"] {
+        border-top: 3px solid var(--tier-uncommon) !important;
+      }
+      .card[data-tier="common"] {
+        border-top: 3px solid var(--tier-common) !important;
+      }
+      .card[data-tier="lunar"] {
+        border-top: 3px solid var(--tier-lunar) !important;
+      }
+
+      .card[data-tier="legendary"]:hover {
+        border-color: var(--tier-legendary-border) !important;
+      }
+      .card[data-tier="boss"]:hover {
+        border-color: var(--tier-boss-border) !important;
+      }
+      .card[data-tier="uncommon"]:hover {
+        border-color: var(--tier-uncommon-border) !important;
+      }
+      .card[data-tier="common"]:hover {
+        border-color: var(--tier-common-border) !important;
+      }
+      .card[data-tier="lunar"]:hover {
+        border-color: var(--tier-lunar-border) !important;
+      }
+
+      .card-img-top {
+        border-bottom: 1px solid var(--ror2-border);
+      }
+
+      .card-body {
+        padding: 1.1rem 1.2rem;
+      }
+
+      .tier-badge {
+        display: inline-block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        padding: 3px 9px;
+        border-radius: 99px;
+        margin-bottom: 0.55rem;
+        border: 1px solid;
+      }
+      .badge-legendary {
+        color: var(--tier-legendary);
+        border-color: var(--tier-legendary-border);
+        background: var(--tier-legendary-bg);
+      }
+      .badge-boss {
+        color: var(--tier-boss);
+        border-color: var(--tier-boss-border);
+        background: var(--tier-boss-bg);
+      }
+      .badge-uncommon {
+        color: var(--tier-uncommon);
+        border-color: var(--tier-uncommon-border);
+        background: var(--tier-uncommon-bg);
+      }
+      .badge-common {
+        color: var(--tier-common);
+        border-color: var(--tier-common-border);
+        background: var(--tier-common-bg);
+      }
+      .badge-lunar {
+        color: var(--tier-lunar);
+        border-color: var(--tier-lunar-border);
+        background: var(--tier-lunar-bg);
+      }
+
+      .card-title {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: var(--ror2-text) !important;
+        margin-bottom: 0.45rem;
+      }
+      .card-text {
+        font-size: 0.875rem;
+        color: var(--ror2-muted) !important;
+        line-height: 1.65;
+        margin-bottom: 0;
+      }
+      .card-stat {
+        font-size: 0.75rem;
+        color: var(--ror2-muted);
+        margin-top: 0.7rem;
+        padding-top: 0.65rem;
+        border-top: 1px solid var(--ror2-border);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .stat-chip {
+        background: var(--ror2-surface2);
+        border: 1px solid var(--ror2-border);
+        border-radius: 4px;
+        padding: 2px 7px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--ror2-muted);
+      }
+
+      /* blockquote cards */
+      .card .blockquote {
+        font-size: 0.9rem;
+        font-style: italic;
+        color: var(--ror2-text) !important;
+        margin-bottom: 0.5rem;
+      }
+      .card .blockquote p {
+        color: var(--ror2-text) !important;
+      }
+      .card .blockquote-footer {
+        font-size: 0.78rem;
+        color: var(--ror2-muted) !important;
+      }
+      .card .blockquote-footer::before {
+        color: var(--ror2-muted);
+      }
+
+      /* image placeholder SVGs */
+      .item-img {
+        display: block;
+        width: 100%;
+      }
+
+      /* ── Footer ── */
+      .ror2-footer {
+        background: var(--ror2-surface);
+        border-top: 1px solid var(--ror2-border);
+        padding: 2rem 0;
+        margin-top: 4rem;
+        color: var(--ror2-muted);
+        font-size: 0.8rem;
+      }
+
+      /* ── Mode toggle ── */
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+      .btn-bd-primary {
+        --bs-btn-color: #fff;
+        --bs-btn-bg: #c84040;
+        --bs-btn-border-color: #c84040;
+        --bs-btn-hover-bg: #a83030;
+        --bs-btn-hover-border-color: #a83030;
+        --bs-btn-active-bg: #8a2020;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Icons sprite -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        />
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        />
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162z"
+        />
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        />
+      </symbol>
+    </svg>
+
+    <!-- Theme toggle -->
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use></svg
+            >Light<svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use></svg
+            >Dark<svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use></svg
+            >Auto<svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="ror2-navbar">
+      <div class="container d-flex align-items-center justify-content-between">
+        <a href="#" class="brand">RISK OF RAIN <span>2</span></a>
+        <div class="d-flex gap-2">
+          <a href="#" class="nav-pill">Items</a>
+          <a href="#" class="nav-pill">Personajes</a>
+          <a href="#" class="nav-pill">Artefactos</a>
+          <a href="#" class="nav-pill">Guías</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="ror2-hero">
+      <div class="container">
+        <h1>Mejores Items de <em>Risk of Rain 2</em></h1>
+        <p class="lead">
+          Una selección curada de los objetos más poderosos del juego, ordenados
+          por tier y acompañados de sus estadísticas, sinergias clave y consejos
+          de uso.
+        </p>
+        <div class="tier-legend">
+          <span class="tier-pip pip-legendary"
+            ><span
+              class="tier-pip-dot"
+              style="background: var(--tier-legendary)"
+            ></span
+            >Legendario</span
+          >
+          <span class="tier-pip pip-boss"
+            ><span
+              class="tier-pip-dot"
+              style="background: var(--tier-boss)"
+            ></span
+            >Jefe (Rojo)</span
+          >
+          <span class="tier-pip pip-uncommon"
+            ><span
+              class="tier-pip-dot"
+              style="background: var(--tier-uncommon)"
+            ></span
+            >Poco común</span
+          >
+          <span class="tier-pip pip-common"
+            ><span
+              class="tier-pip-dot"
+              style="background: var(--tier-common)"
+            ></span
+            >Común</span
+          >
+          <span class="tier-pip pip-lunar"
+            ><span
+              class="tier-pip-dot"
+              style="background: var(--tier-lunar)"
+            ></span
+            >Lunar</span
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="container py-5">
+      <div class="section-intro">
+        <h2
+          style="
+            font-family: &quot;Barlow Condensed&quot;, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            font-size: 1.5rem;
+            color: var(--ror2-text);
+          "
+        >
+          Guía de Items
+        </h2>
+      </div>
+
+      <hr class="my-5" style="border-color: var(--ror2-border)" />
+
+      <!-- MASONRY GRID -->
+      <div class="row g-4" data-masonry='{"percentPosition": true}'>
+        <!-- Dio's Best Friend -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card" data-tier="legendary">
+            <svg
+              class="item-img"
+              height="160"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="Dio's Best Friend — Legendario"
+            >
+              <rect width="100%" height="100%" fill="#1a1208" />
+
+              <image
+                href="https://th.bing.com/th/id/OIP.lGf7L5mpVlESA-6N1qXYxwAAAA?w=92&h=92&c=7&r=0&o=7&pid=1.7&rm=3"
+                x="10%"
+                y="10%"
+                width="80%"
+                height="80%"
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </svg>
+            <div class="card-body">
+              <span class="tier-badge badge-legendary">Legendario</span>
+              <h5 class="card-title">Dio's Best Friend</h5>
+              <p class="card-text">
+                Al morir, resucitas con todos tus objetos intactos. Una vida
+                extra garantizada que puede salvar cualquier run en el momento
+                más crítico.
+              </p>
+              <div class="card-stat">
+                <span class="stat-chip">1 resurrección / stack</span>
+                <span class="stat-chip">Prioridad: máxima</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 57 Leaf Clover -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card p-3" data-tier="boss">
+            <figure class="p-2 mb-0">
+              <span class="tier-badge badge-boss">Jefe — Rojo</span>
+              <blockquote class="blockquote mt-1">
+                <p>
+                  El objeto más impactante del juego. Hace que todos los efectos
+                  por suerte se vuelvan a tirar una vez más si fallan,
+                  multiplicando la efectividad de decenas de items.
+                </p>
+              </blockquote>
+              <br />
+              <figcaption class="blockquote-footer mb-0">
+                57 Leaf Clover —
+                <cite title="Sinergia">Sinergia con casi todo</cite>
+              </figcaption>
+              <div class="card-stat">
+                <span class="stat-chip">Re-roll en fallos</span>
+                <span class="stat-chip">Sinergia: AtG · Clover · Bands</span>
+              </div>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Ceremonial Dagger -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card" data-tier="legendary">
+            <svg
+              class="item-img"
+              height="160"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="Dio's Best Friend — Legendario"
+            >
+              <rect width="100%" height="100%" fill="#1a1208" />
+
+              <image
+                href="data:image/webp;base64,UklGRu4DAABXRUJQVlA4IOIDAADQEwCdASpRAFEAPp1EmkglpCKhKrldULATiWIAtvvenIxMPe33vSHnAPOyPHOaffDY9auBg7yBWtRWDOwAHyQmyZtUS4eR3Y30Ovlj62+YWx7UYxiw+9nipNOSN9LCFy+vf1ecYVq+y7aKq6gqtXEKyMDOdX2UeuwqvEb+eSoG4OdMO9BG0cKiidpqyuuZD7FQ+SVQe7W77qeals8wMVxlltymwF1DGAD+9LxAP5ux1CxZ9VqoFzVn9BAv4K/qv0vS/Ie07PbKiMHpEb7m3vQbEX2MPFpdThazapsvTatwmdGthl+33zpx5x61SAZsAXcZUoMszQkZb7TKvz7RjFCyBbfMAcXcu0IcUBhxjJNKr/7IVjffC4INnqsObv9pzvmY5rLuD9l1ONOVwbHUlExkkk2w6gX8JZbJI94bWIgr6Rmi2fdx9HOxvf4n1pXHV9lINPUFwyFYw9zFhViEIUYubuHMP/jh+YtSM4oqGsmJFS4ul0ffSUG54EfCrByYlLbBIHDfgP6jXCEuQl6E5AHZSsI0V3lNeJ0IUYib0OO5QXTjlTQ4B342H+0dPTUqHn67575DC+65vRA7hoZpEX79YQQWc3w3g0H8sxLFd4eR3KI+6FM+PZ6P1deYVpO2Jk+IELHRhnECyGT8CF2xexRACn0mym0ALiqpZeLNOdXZ+PqNkTJRS1x84MQLm+sztr3olJckxzGWnOOXgsEKu1p6jVxEbE/rdESu5dgLZihK4RqOudEsSbEB/rr2m/uAJWSPNKhmo8aupZDTA3/aJ3QkTivavQqzKjNMtveTCQzqOnE9Ij4NISFiFvmd6y8ss4OfV4tsWFiFROrVwJjUJHWUGfV0XFbwmtSnoBDFiS2xnRn5jSZKRJbpq3B6HXRNiBpVwZTId/KwIb907lCuac/rHzDbcyyUi05dqlBdfbfAD4Rk6fYqNDXrHv1hO8Yfs0cqtlI/IO3hF8mbub0odoUfru1TyhiN0tnSPkwIcqTOBW4vxRj3rBgI3jEhRiHxwMH5y/noXk8heNCLEh/gnOKXg+FRriKafi6fzgdrPxYnzBkYaVjTK6A4afS/ijScTD1fKiUuWDBuPGKsdcRVf9HyfVyJ6O/2UXWZWUmdIo4DJtn8SxuBLdtPpMQ8lxTumMB8cRrVEKKAylpR7a3Hqgh3McXlF1qzv1ppMbnIam4w+AOoQcvtdEta7YFwwPSscHf1VRRD0saMMZLeM1OYujK6zCL/2VFlw321aCXmWfi2+S3rar7635dIPRkX9aV3nNLEmji7Qk8IhEePMsQ0vx4rKfNvLO/9h8n1bf+SgsLfwAAA"
+                x="10%"
+                y="10%"
+                width="80%"
+                height="80%"
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </svg>
+            <div class="card-body">
+              <span class="tier-badge badge-legendary">Legendario</span>
+              <h5 class="card-title">Ceremonial Dagger</h5>
+              <p class="card-text">
+                Al matar un enemigo, lanza 3 dagas de búsqueda automática que
+                hacen 150% del daño base cada una. Escala brutalmente en loops
+                tardíos.
+              </p>
+              <p
+                class="card-text mt-2"
+                style="color: var(--ror2-muted); font-size: 0.8rem"
+              >
+                Actualizado hace 3 minutos
+              </p>
+              <div class="card-stat">
+                <span class="stat-chip">3 dagas / kill</span>
+                <span class="stat-chip">150% daño base</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brilliant Behemoth -->
+        <div class="col-sm-6 col-lg-4">
+          <div
+            class="card text-center p-3"
+            data-tier="boss"
+            style="background: var(--tier-boss-bg) !important"
+          >
+            <figure class="mb-0">
+              <span class="tier-badge badge-boss">Jefe — Rojo</span>
+              <blockquote class="blockquote mt-1">
+                <p>
+                  Todos tus ataques explosionan en un radio de 4 m, convirtiendo
+                  cualquier build de daño puntual en AoE devastador.
+                </p>
+              </blockquote>
+              <br />
+              <figcaption
+                class="blockquote-footer mb-0"
+                style="color: rgba(200, 64, 64, 0.7) !important"
+              >
+                Brilliant Behemoth —
+                <cite title="Efecto">+1.5 m por stack</cite>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Hopoo Feather -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card text-center" data-tier="uncommon">
+            <div class="card-body">
+              <span class="tier-badge badge-uncommon">Poco común</span>
+              <h5 class="card-title">Hopoo Feather</h5>
+              <p class="card-text">
+                +1 salto en el aire por stack. Imprescindible para la movilidad
+                y supervivencia en prácticamente cualquier personaje. Sin límite
+                de stacks.
+              </p>
+              <p class="card-text mt-2" style="font-size: 0.8rem">
+                Actualizado hace 3 minutos
+              </p>
+              <div class="card-stat justify-content-center">
+                <span class="stat-chip">+1 salto aéreo / stack</span>
+                <span class="stat-chip">Sin techo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rejuvenation Rack -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card" data-tier="legendary">
+            <svg
+              class="item-img"
+              height="200"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="Rejuvenation Rack — Legendario"
+            >
+              <rect width="100%" height="100%" fill="#1a1208" />
+              <text
+                x="50%"
+                y="40%"
+                fill="#c8952a"
+                font-family="Barlow Condensed,sans-serif"
+                font-size="34"
+                font-weight="700"
+                text-anchor="middle"
+                dominant-baseline="middle"
+              >
+                ✚
+              </text>
+              <text
+                x="50%"
+                y="60%"
+                fill="#c8952a"
+                font-family="Barlow Condensed,sans-serif"
+                font-size="16"
+                font-weight="700"
+                text-anchor="middle"
+              >
+                Rejuvenation Rack
+              </text>
+              <text
+                x="50%"
+                y="74%"
+                fill="#7a6030"
+                font-family="Barlow,sans-serif"
+                font-size="11"
+                text-anchor="middle"
+              >
+                ×2 a toda la curación
+              </text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Will-o'-the-Wisp -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card p-3 text-end" data-tier="uncommon">
+            <figure class="mb-0">
+              <span class="tier-badge badge-uncommon">Poco común</span>
+              <blockquote class="blockquote mt-1">
+                <p>
+                  Al matar, crea una explosión retardada que inflige 350% de
+                  daño en un radio de 12 m. Ideal para limpiar hordas enteras
+                  con un solo proc.
+                </p>
+              </blockquote>
+              <br />
+              <figcaption class="blockquote-footer mb-0">
+                Will-o'-the-Wisp — <cite>+2.4 m por stack</cite>
+              </figcaption>
+              <div class="card-stat justify-content-end">
+                <span class="stat-chip">350% daño</span>
+                <span class="stat-chip">Radio: 12 m base</span>
+              </div>
+            </figure>
+          </div>
+        </div>
+
+        <!-- AtG Missile Mk. 1 -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card" data-tier="uncommon">
+            <div class="card-body">
+              <span class="tier-badge badge-uncommon">Poco común</span>
+              <h5 class="card-title">AtG Missile Mk. 1</h5>
+              <p class="card-text">
+                10% de probabilidad de disparar un misil que hace 300% del daño
+                base. Con el 57 Leaf Clover en el inventario se convierte en uno
+                de los objetos más brutales del juego.
+              </p>
+              <div class="card-stat">
+                <span class="stat-chip">10% proc</span>
+                <span class="stat-chip">300% daño</span>
+                <span class="stat-chip">Sinergia: Clover</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paul's Goat Hoof -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card" data-tier="common">
+            <div class="card-body">
+              <span class="tier-badge badge-common">Común</span>
+              <h5 class="card-title">Paul's Goat Hoof</h5>
+              <p class="card-text">
+                Aumenta la velocidad de movimiento un 14% por stack. Simple,
+                fiable y absolutamente imprescindible en cualquier build. La
+                movilidad salva vidas.
+              </p>
+              <div class="card-stat">
+                <span class="stat-chip">+14% velocidad / stack</span>
+                <span class="stat-chip">Stackea linealmente</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Runald's Band -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card" data-tier="uncommon">
+            <svg
+              class="item-img"
+              height="160"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="Runald's band - Common"
+            >
+              <rect width="100%" height="100%" fill="#081812" />
+
+              <image
+                href="https://th.bing.com/th/id/OIP.gcdX4HkH_qnq2OArSiP9GgAAAA?w=90&h=90&c=7&r=0&o=7&pid=1.7&rm=3"
+                x="10%"
+                y="10%"
+                width="80%"
+                height="80%"
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </svg>
+            <div class="card-body">
+              <span class="tier-badge badge-uncommon">Poco común</span>
+              <h5 class="card-title">Runald's Band</h5>
+              <p class="card-text">
+                Hits por encima del 400% de daño lanzan un anillo de hielo que
+                ralentiza y añade 250% de daño adicional. Cooldown de 10 s.
+              </p>
+              <div class="card-stat">
+                <span class="stat-chip">+250% daño</span>
+                <span class="stat-chip">Slow incluido</span>
+                <span class="stat-chip">CD: 10 s</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gesture of the Drowned -->
+        <div class="col-sm-6 col-lg-4">
+          <div
+            class="card p-3"
+            data-tier="lunar"
+            style="background: var(--tier-lunar-bg) !important"
+          >
+            <figure class="p-2 mb-0">
+              <span class="tier-badge badge-lunar">Lunar</span>
+              <blockquote class="blockquote mt-1">
+                <p>
+                  Reduce el cooldown del equipamiento a prácticamente cero, pero
+                  lo activa de forma automática. En manos correctas —como con
+                  Royal Capacitor— es absolutamente roto.
+                </p>
+              </blockquote>
+              <br />
+              <figcaption
+                class="blockquote-footer mb-0"
+                style="color: rgba(64, 128, 208, 0.8) !important"
+              >
+                Gesture of the Drowned — <cite>Doble filo</cite>
+              </figcaption>
+              <div class="card-stat">
+                <span class="stat-chip">−50% CD / stack</span>
+                <span class="stat-chip">Uso automático</span>
+              </div>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Tougher Times -->
+        <div class="col-sm-6 col-lg-4">
+          <div class="card" data-tier="common">
+            <div class="card-body">
+              <span class="tier-badge badge-common">Común</span>
+              <h5 class="card-title">Tougher Times</h5>
+              <p class="card-text">
+                15% de probabilidad de bloquear completamente un golpe. Con
+                múltiples stacks la tasa de bloqueo crece de forma hiperbólica y
+                se convierte en un escudo fiable.
+              </p>
+              <p
+                class="card-text mt-2"
+                style="font-size: 0.8rem; color: var(--ror2-muted)"
+              >
+                Sinergia: cualquier build de tanque
+              </p>
+              <div class="card-stat">
+                <span class="stat-chip">~15% bloqueo / stack</span>
+                <span class="stat-chip">Crece hiperbólicamente</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- fin Masonry -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="ror2-footer">
+      <div
+        class="container d-flex flex-wrap justify-content-between align-items-center gap-3"
+      >
+        <span
+          style="
+            font-family: &quot;Barlow Condensed&quot;, sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--ror2-muted);
+          "
+          >RISK OF RAIN <span style="color: var(--tier-boss)">2</span> — Item
+          Guide</span
+        >
+        <span
+          >Datos basados en la versión 1.3.1 · No afiliado con Hopoo Games ni
+          Gearbox Software.</span
+        >
+        <div class="d-flex gap-3">
+          <a href="#" style="color: var(--ror2-muted); text-decoration: none"
+            >Wiki oficial</a
+          >
+          <a href="#" style="color: var(--ror2-muted); text-decoration: none"
+            >Tier list completa</a
+          >
+          <a href="#" style="color: var(--ror2-muted); text-decoration: none"
+            >Sinergias</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      async
+      src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+      integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

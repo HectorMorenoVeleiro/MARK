@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="RAMborghini — RAM de lujo a precios imposibles"
+    />
+    <title>RAMborghini · Memoria de élite</title>
+
+    <!-- Bootstrap CSS oficial -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --gold: #c9a84c;
+        --gold-light: #e8c96a;
+        --gold-dark: #9a7230;
+        --dark-bg: #0a0a0a;
+        --panel-bg: #111111;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background-color: var(--dark-bg) !important;
+        color: #e0e0e0;
+      }
+
+      /* ── NAVBAR ── */
+      .navbar-brand-text {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+        color: var(--gold) !important;
+      }
+      .navbar.bg-dark {
+        background-color: #050505 !important;
+        border-bottom: 1px solid var(--gold-dark) !important;
+      }
+      .nav-link {
+        color: #bbb !important;
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--gold) !important;
+      }
+
+      /* ── HERO ── */
+      .hero-section {
+        position: relative;
+        overflow: hidden;
+
+        /* 👇 pon aquí la URL de tu imagen */
+        background-image: url("https://www.elpais.com.co/resizer/v2/4CPRHPO4LVEI5J2CZYBFS5YY7E.png?auth=8e47c1635719e19bb66e0a28a1009f0096fe0ef6201829a96e2d5797d9fc5280&smart=true&quality=75&width=1280&height=720");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        /* 👇 ajusta la opacidad: 0.5 = tinte suave, 0.85 = casi negro */
+        background: rgba(0, 0, 0, 0.65);
+        z-index: 0;
+      }
+
+      .hero-section > * {
+        /* mantiene el contenido por encima del tinte */
+        position: relative;
+        z-index: 1;
+      }
+      .hero-tagline {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.8rem, 6vw, 5rem);
+        letter-spacing: 4px;
+        color: var(--gold);
+        line-height: 1;
+        text-shadow: 0 0 60px rgba(201, 168, 76, 0.3);
+      }
+      .hero-sub {
+        font-size: 1.1rem;
+        color: #888;
+        font-weight: 300;
+        letter-spacing: 1px;
+      }
+      .btn-gold {
+        background: var(--gold);
+        color: #0a0a0a;
+        font-weight: 500;
+        border: none;
+        padding: 0.7rem 2rem;
+        letter-spacing: 1px;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        border-radius: 2px;
+      }
+      .btn-gold:hover {
+        background: var(--gold-light);
+        color: #000;
+        transform: translateY(-1px);
+      }
+      .btn-outline-gold {
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        background: transparent;
+        padding: 0.7rem 2rem;
+        letter-spacing: 1px;
+        transition: all 0.2s;
+        border-radius: 2px;
+      }
+      .btn-outline-gold:hover {
+        background: var(--gold);
+        color: #000;
+      }
+
+      /* ── DEVICE ── */
+      .product-device {
+        position: absolute;
+        right: 6%;
+        bottom: -20%;
+        width: 220px;
+        height: 420px;
+        background: linear-gradient(135deg, #2a2200, #1a1600);
+        border: 1px solid var(--gold-dark);
+        border-radius: 12px;
+        transform: rotate(25deg);
+        box-shadow: 0 0 60px rgba(201, 168, 76, 0.15);
+      }
+      .product-device::before {
+        position: absolute;
+        top: 10%;
+        right: 10%;
+        bottom: 10%;
+        left: 10%;
+        content: "";
+        background: linear-gradient(
+          135deg,
+          rgba(201, 168, 76, 0.08),
+          transparent
+        );
+        border-radius: 6px;
+        border: 1px solid rgba(201, 168, 76, 0.2);
+      }
+      .product-device-2 {
+        right: auto;
+        left: 4%;
+        transform: rotate(-20deg);
+        width: 180px;
+        height: 360px;
+        bottom: -25%;
+      }
+
+      /* ── FEATURE PANELS ── */
+      .feature-panel {
+        background: var(--panel-bg);
+        border: 1px solid #1e1e1e;
+        transition: border-color 0.3s;
+      }
+      .feature-panel:hover {
+        border-color: var(--gold-dark);
+      }
+      .feature-panel.gold-accent {
+        background: linear-gradient(135deg, #141000, #0a0a0a);
+        border-color: var(--gold-dark);
+      }
+      .feature-panel .display-5 {
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 2px;
+        color: var(--gold);
+      }
+      .feature-panel .lead {
+        color: #777;
+        font-size: 0.95rem;
+      }
+      .mockup-img {
+        width: 80%;
+        height: 260px;
+        object-fit: cover;
+        border-radius: 12px 12px 0 0;
+        display: block;
+      }
+      .price-tag {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.6rem;
+        color: var(--gold);
+        letter-spacing: 2px;
+      }
+      .price-label {
+        font-size: 0.75rem;
+        color: #555;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .spec-badge {
+        display: inline-block;
+        background: #1a1400;
+        border: 1px solid var(--gold-dark);
+        color: var(--gold);
+        font-size: 0.7rem;
+        padding: 2px 10px;
+        border-radius: 2px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .gold-bar {
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        width: 60px;
+        margin: 0.75rem auto;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #050505;
+        border-top: 1px solid #1a1400;
+      }
+      footer h5 {
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 2px;
+        color: var(--gold);
+        font-size: 1.1rem;
+      }
+      footer .link-secondary {
+        color: #555 !important;
+        transition: color 0.2s;
+      }
+      footer .link-secondary:hover {
+        color: var(--gold) !important;
+      }
+      footer small {
+        color: #333;
+      }
+
+      /* ── THEME TOGGLE ── */
+      .btn-bd-primary {
+        --bs-btn-color: var(--gold);
+        --bs-btn-bg: #0e0b00;
+        --bs-btn-border-color: var(--gold-dark);
+        --bs-btn-hover-bg: #1a1400;
+        --bs-btn-hover-border-color: var(--gold);
+        --bs-btn-active-bg: #1a1400;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      (() => {
+        "use strict";
+        const getStoredTheme = () => localStorage.getItem("theme");
+        const setStoredTheme = (t) => localStorage.setItem("theme", t);
+        const getPreferredTheme = () =>
+          getStoredTheme() ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        const setTheme = (t) =>
+          document.documentElement.setAttribute(
+            "data-bs-theme",
+            t === "auto"
+              ? window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light"
+              : t,
+          );
+        setTheme(getPreferredTheme());
+        window.addEventListener("DOMContentLoaded", () => {
+          document.querySelectorAll("[data-bs-theme-value]").forEach((el) => {
+            el.addEventListener("click", () => {
+              const t = el.getAttribute("data-bs-theme-value");
+              setStoredTheme(t);
+              setTheme(t);
+              document
+                .querySelectorAll("[data-bs-theme-value]")
+                .forEach((e) => {
+                  e.classList.remove("active");
+                  e.setAttribute("aria-pressed", "false");
+                });
+              el.classList.add("active");
+              el.setAttribute("aria-pressed", "true");
+            });
+          });
+        });
+      })();
+    </script>
+
+    <!-- SVG SYMBOLS -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        />
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        />
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        />
+      </symbol>
+      <symbol
+        id="chip"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect x="7" y="7" width="10" height="10" rx="1" />
+        <path d="M9 7V4m6 3V4M9 20v-3m6 3v-3M7 9H4m3 6H4m16-6h-3m3 6h-3" />
+      </symbol>
+    </svg>
+
+    <!-- THEME TOGGLE -->
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Cambiar tema"
+      >
+        <svg class="bi my-1" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Cambiar tema</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use></svg
+            >Claro<svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use></svg
+            >Oscuro<svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use></svg
+            >Auto<svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-expand-md bg-dark sticky-top border-bottom"
+      data-bs-theme="dark"
+    >
+      <div class="container">
+        <a class="navbar-brand navbar-brand-text d-md-none" href="#"
+          >RAMborghini</a
+        >
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvas"
+          aria-controls="offcanvas"
+          aria-label="Menú"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvas"
+          aria-labelledby="offcanvasLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title navbar-brand-text" id="offcanvasLabel">
+              RAMborghini
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Cerrar"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul
+              class="navbar-nav flex-grow-1 justify-content-between align-items-md-center"
+            >
+              <li class="nav-item">
+                <a class="navbar-brand-text nav-link d-none d-md-block" href="#"
+                  >RAMborghini</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Colección</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Especificaciones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Heritage</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Boutique</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Soporte VIP</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#">Precios</a></li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" aria-label="Carrito">
+                  <i
+                    class="bi bi-bag"
+                    style="font-size: 1.2rem; color: #c9a84c"
+                  ></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- HERO -->
+      <div
+        class="hero-section position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center"
+      >
+        <div class="col-md-6 p-lg-5 mx-auto my-5">
+          <div class="mb-3">
+            <span class="spec-badge">Edición Platino 2025</span>
+          </div>
+          <h1 class="hero-tagline">Memoria<br />sin límites</h1>
+          <div class="gold-bar"></div>
+          <h3 class="hero-sub mb-4">
+            La RAM más cara del mundo.<br />Porque tú lo vales. Probablemente.
+          </h3>
+          <div class="d-flex gap-3 justify-content-center">
+            <a class="btn btn-gold" href="#">Ver colección</a>
+            <a class="btn btn-outline-gold" href="#">Solicitar cotización</a>
+          </div>
+          <p
+            class="mt-4"
+            style="font-size: 0.75rem; color: #333; letter-spacing: 1px"
+          >
+            DESDE <span style="color: var(--gold)">€ 14999</span> / módulo ·
+            Financiación disponible para fortunas superiores a 10M€
+          </p>
+        </div>
+        <div class="product-device d-none d-md-block"></div>
+        <div class="product-device product-device-2 d-none d-md-block"></div>
+      </div>
+
+      <!-- ROW 1 -->
+      <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div
+          class="feature-panel gold-accent me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 py-3">
+            <span class="spec-badge mb-3 d-inline-block">Flagship</span>
+            <h2 class="display-5">Aurum X Pro Max Ultra</h2>
+            <div class="gold-bar"></div>
+            <p class="lead">
+              256 GB DDR5 · 12.800 MHz · CL2 · Disipador en oro de 24 quilates
+            </p>
+            <p class="price-tag">€ 89999</p>
+            <p class="price-label">
+              / módulo · IVA no incluido · Almas vendidas aparte
+            </p>
+          </div>
+          <!-- IMAGEN PRODUCTO 1 — reemplaza la URL -->
+          <img
+            src="https://tse1.mm.bing.net/th/id/OIP.JGRHJ5hX6Q753bZeudF8AgHaET?r=0&w=1970&h=1144&rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt="Aurum X Pro Max Ultra"
+            class="mockup-img mx-auto d-block"
+          />
+        </div>
+        <div
+          class="feature-panel me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 p-3">
+            <span class="spec-badge mb-3 d-inline-block">Serie Obsidiana</span>
+            <h2 class="display-5">Nocturne Elite DDR5</h2>
+            <div class="gold-bar"></div>
+            <p class="lead">
+              128 GB · 10.666 MHz · Módulo negro mate con serigrafía en platino
+            </p>
+            <p class="price-tag">€ 34750</p>
+            <p class="price-label">
+              / módulo · Envío en maletín Pelican blindado
+            </p>
+          </div>
+          <!-- IMAGEN PRODUCTO 2 — reemplaza la URL -->
+          <img
+            src="https://tse3.mm.bing.net/th/id/OIP.95j1zhFYg1L4xucGiA0KcgHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt="Nocturne Elite DDR5"
+            class="mockup-img mx-auto d-block"
+          />
+        </div>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div
+          class="feature-panel me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 p-3">
+            <span class="spec-badge mb-3 d-inline-block">Gaming Supremo</span>
+            <h2 class="display-5">Valkyrie RGB Hyper</h2>
+            <div class="gold-bar"></div>
+            <p class="lead">
+              64 GB · 9.200 MHz · 47 zonas RGB articuladas · Sonido de inicio
+              personalizado
+            </p>
+            <p class="price-tag">€ 12499</p>
+            <p class="price-label">/ módulo · RGB no incluido en precio base</p>
+          </div>
+          <!-- IMAGEN PRODUCTO 3 — reemplaza la URL -->
+          <img
+            src="https://cdn.wccftech.com/wp-content/uploads/2023/03/DSC_0051-Custom-1920x1280.jpg"
+            alt="Valkyrie RGB Hyper"
+            class="mockup-img mx-auto d-block"
+          />
+        </div>
+        <div
+          class="feature-panel gold-accent me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 py-3">
+            <span class="spec-badge mb-3 d-inline-block">Edición Limitada</span>
+            <h2 class="display-5">Celestia 1 TB DDR6</h2>
+            <div class="gold-bar"></div>
+            <p class="lead">
+              1 TB · DDR6 Prototipo · Solo 7 unidades mundiales · Firmado por el
+              CEO
+            </p>
+            <p class="price-tag">€ 249000</p>
+            <p class="price-label">
+              / unidad · Requiere aprobación de solvencia
+            </p>
+          </div>
+          <!-- IMAGEN PRODUCTO 4 — reemplaza la URL -->
+          <img
+            src="https://www.techspot.com/images2/news/bigimage/2021/06/2021-06-19-image-2.jpg"
+            alt="Celestia 1 TB DDR6"
+            class="mockup-img mx-auto d-block"
+          />
+        </div>
+      </div>
+
+      <!-- ROW 3 – WHY -->
+      <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div
+          class="feature-panel me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 p-3">
+            <span class="spec-badge mb-3 d-inline-block"
+              >Por qué elegirnos</span
+            >
+            <h2 class="display-5">Ingeniería cuántica</h2>
+            <div class="gold-bar"></div>
+            <p class="lead">
+              Cada módulo es ensamblado a mano en salas limpias Clase 0 por
+              ingenieros con doctorado en física de condensados. El proceso dura
+              6 semanas.
+            </p>
+          </div>
+          <!-- IMAGEN SECCIÓN 5 — reemplaza la URL -->
+          <img
+            src="https://cdn2.techbang.com/system/excerpt_images/91179/original/f180bffc546660a4d95ee6e17178fdcc.jpg?1635417016"
+            alt="Ingeniería cuántica"
+            class="mockup-img mx-auto d-block"
+          />
+        </div>
+        <div
+          class="feature-panel me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 py-3">
+            <span class="spec-badge mb-3 d-inline-block">Soporte VIP</span>
+            <h2 class="display-5">Asistencia 25/8</h2>
+            <div class="gold-bar"></div>
+            <p class="lead">
+              Tu RAM tiene más soporte que tú. Ingeniero personal asignado,
+              helicóptero de emergencia y psicólogo en caso de kernel panic.
+            </p>
+          </div>
+          <!-- IMAGEN SECCIÓN 6 — reemplaza la URL -->
+          <img
+            src="https://hardzone.es/app/uploads-hardzone.es/2024/03/mejores-memorias-ram-ddr5-mercado.jpg"
+            alt="Asistencia 25/8"
+            class="mockup-img mx-auto d-block"
+          />
+        </div>
+      </div>
+
+      <!-- ROW 4 – TESTIMONIALS -->
+      <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div
+          class="feature-panel me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 p-3">
+            <span class="spec-badge mb-3 d-inline-block">Testimonios</span>
+            <h2 class="display-5">"Cambió mi vida"</h2>
+            <div class="gold-bar"></div>
+            <p class="lead">
+              "Desde que instalé la Aurum X Pro Max Ultra mi IDE compila un
+              0,003% más rápido. He lamentado el gasto exactamente 0 veces."<br /><span
+                style="color: #333; font-size: 0.8rem"
+                >— Remigio P., desarrollador arruinado</span
+              >
+            </p>
+          </div>
+          <!-- IMAGEN SECCIÓN 7 — reemplaza la URL -->
+          <img
+            src="https://tse2.mm.bing.net/th/id/OIP.vUXmNvoNqfc5Hx_C5FrMvwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt="Testimonio"
+            class="mockup-img mx-auto d-block"
+          />
+        </div>
+        <div
+          class="feature-panel me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 py-3">
+            <span class="spec-badge mb-3 d-inline-block">Prensa</span>
+            <h2 class="display-5">"Absurdo. 10/10"</h2>
+            <div class="gold-bar"></div>
+            <p class="lead">
+              "No entendemos el precio, no entendemos la marca, no entendemos
+              quién compra esto. Pero funciona increíblemente bien."<br /><span
+                style="color: #333; font-size: 0.8rem"
+                >— TechReview Europa</span
+              >
+            </p>
+          </div>
+          <!-- IMAGEN SECCIÓN 8 — reemplaza la URL -->
+          <img
+            src="https://ifdalivestorage.blob.core.windows.net/user-uploads/73712/mid-size/300155/00000000-0000-0000-0000-000000000000/91364.jpg"
+            alt="Prensa"
+            class="mockup-img mx-auto d-block"
+          />
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="28"
+            fill="none"
+            stroke="#c9a84c"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            class="d-block mb-2"
+            role="img"
+            viewBox="0 0 24 24"
+          >
+            <title>RAMborghini</title>
+            <rect x="7" y="7" width="10" height="10" rx="1" />
+            <path d="M9 7V4m6 3V4M9 20v-3m6 3v-3M7 9H4m3 6H4m16-6h-3m3 6h-3" />
+          </svg>
+          <span
+            style="
+              font-family: &quot;Bebas Neue&quot;, sans-serif;
+              color: var(--gold);
+              letter-spacing: 2px;
+              font-size: 1.1rem;
+            "
+            >RAMborghini</span
+          >
+          <small class="d-block mt-2 text-body-secondary"
+            >© 2025 · Todos los precios en EUR · IVA no incluido</small
+          >
+        </div>
+        <div class="col-6 col-md">
+          <h5>Productos</h5>
+          <ul class="list-unstyled text-small">
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Serie Aurum</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Serie Nocturne</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Valkyrie RGB</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Celestia 1 TB</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Ediciones especiales</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Recursos</h5>
+          <ul class="list-unstyled text-small">
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Hoja de especificaciones</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Comparativa de RAMs</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >White papers</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Canal de YouTube</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Clientes</h5>
+          <ul class="list-unstyled text-small">
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Particulares</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Empresas</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Gobiernos</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Extraterrestres</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Nosotros</h5>
+          <ul class="list-unstyled text-small">
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >El equipo</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Ubicaciones</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Privacidad</a
+              >
+            </li>
+            <li>
+              <a class="link-secondary text-decoration-none" href="#"
+                >Términos</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS oficial -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmROBxDEAOMc25f8M7PsGne8IQTLK"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
